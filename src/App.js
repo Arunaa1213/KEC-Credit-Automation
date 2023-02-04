@@ -1,6 +1,7 @@
 import { Routes, Route, HashRouter } from "react-router-dom";
 
 import Home from "./Home";
+import AddCourse from "./staff/course/AddCourse";
 import StaffLogin from "./staff/login/StaffLogin";
 import StaffHome from "./staff/StaffHome";
 import StudentLogin from "./student/login/StudentLogin";
@@ -11,46 +12,12 @@ function App() {
     <div>
       <HashRouter>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <div>
-                <Home />
-              </div>
-            }
-          />
-          <Route
-            path="/staffhome"
-            element={
-              <div>
-                <StaffHome />
-              </div>
-            }
-          />
-          <Route
-            path="/studenthome"
-            element={
-              <div>
-                <StudentHome />
-              </div>
-            }
-          />
-          <Route
-            path="/stafflogin"
-            element={
-              <div>
-                <StaffLogin />
-              </div>
-            }
-          />
-          <Route
-            path="/studentlogin"
-            element={
-              <div>
-                <StudentLogin />
-              </div>
-            }
-          />
+          <Route path="/" element={<Home />} />
+          <Route path="/staffhome" element={<StaffHome />} />
+          <Route path="/studenthome" element={<StudentHome />} />
+          <Route path="/stafflogin" element={<StaffLogin />} />
+          <Route path="/studentlogin" element={<StudentLogin />} />
+          <Route path="/addcourse" element={<AddCourse />} />
         </Routes>
       </HashRouter>
     </div>
