@@ -1,8 +1,4 @@
-import {
-  Routes,
-  Route,
-  HashRouter
-} from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 
 import Home from "./Home";
 import AddCourse from "./staff/course/AddCourse";
@@ -13,27 +9,15 @@ import StudentHome from "./student/StudentHome";
 
 function App() {
   return (
-    <div >
+    <div>
       <HashRouter>
         <Routes>
-          <Route path="/" element={
-              <Home />
-          } />
-          <Route path="/staffhome" element={
-              <StaffHome />
-          } />
-          <Route path="/studenthome" element={
-              <StudentHome />
-          } />
-          <Route path="/stafflogin" element={
-              <StaffLogin />
-          } />
-          <Route path="/studentlogin" element={
-              <StudentLogin />
-          } />
-          <Route path="/addcourse" element={
-              <AddCourse />
-          } />
+          <Route path="/" element={<Home />} />
+          <Route path="/staffhome" element={<StaffHome />} />
+          <Route path="/studenthome" element={<StudentHome />} />
+          <Route path="/stafflogin" element={<StaffLogin />} />
+          <Route path="/studentlogin" element={<StudentLogin />} />
+          <Route path="/addcourse" element={<AddCourse />} />
         </Routes>
       </HashRouter>
     </div>
