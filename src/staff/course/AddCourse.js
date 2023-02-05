@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function AddCourse() {
     const navigate = useNavigate();
-    
+
     const [inputs, setInputs] = useState([]);
 
     const handleChange = (event) => {
@@ -80,5 +80,5 @@ function AddCourse() {
       </div>
     );
   }
-  
+
 export default AddCourse;
