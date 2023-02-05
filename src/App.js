@@ -17,7 +17,7 @@ function App() {
           <Route path="/studenthome" element={<StudentHome />} />
           <Route path="/stafflogin" element={<StaffLogin />} />
           <Route path="/studentlogin" element={<StudentLogin />} />
-          <Route path="/addcourse" element={<AddCourse />} />
+          {/* <Route path="/addcourse" element={<AddCourse />} /> */}
         </Routes>
       </HashRouter>
     </div>

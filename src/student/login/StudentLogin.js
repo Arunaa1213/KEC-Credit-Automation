@@ -1,32 +1,78 @@
+import React, { useState } from "react";
+import axios from "axios";
+import StudentHome from "../StudentHome.js";
+
+import { useNavigate } from "react-router-dom";
 function StudentLogin() {
+  const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const handleSubmit = () => {
+    if (name.length === 0) {
+      alert("name is empty");
+    } else if (password.length === 0) {
+      alert("password is empty");
+    } else {
+      const url = "http://localhost:81/credit_automation/studentLogin.php";
+      let fData = new FormData();
+      fData.append("name", name);
+      fData.append("password", password);
+      axios
+        .post(url, fData)
+        .then((response) => navigate("/StudentHome"))
+        .catch((error) => alert(error));
+    }
+  };
+  const handleName = (event) => {
+    event.persist();
+    console.log(event.target.value);
+    // setValues((values) => ({
+    //   ...values,
+    //   name: event.target.value,
+    // }));
+    setName(event.target.value);
+  };
+  const handlePass = (event) => {
+    event.persist();
+    console.log(event.target.value);
+    // setValues((values) => ({
+    //   ...values,
+    //   password: event.target.value,
+    // }));
+    setPassword(event.target.value);
+  };
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
         <h1 className="text-3xl font-semibold text-center text-purple-700 underline">
           Log in
         </h1>
-        <form className="mt-6">
+        <form className="mt-6" onSubmit={handleSubmit}>
           <div className="mb-2">
             <label
-              for="email"
+              htmlFor="username"
               className="block text-sm font-semibold text-gray-800"
             >
-              Email
+              name
             </label>
             <input
-              type="email"
+              name="username"
+              type="text"
+              onChange={handleName}
               className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
           <div className="mb-2">
             <label
-              for="password"
+              htmlFor="password"
               className="block text-sm font-semibold text-gray-800"
             >
               Password
             </label>
             <input
+              name="password"
               type="password"
+              onChange={handlePass}
               className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function AddCourse() {
     const navigate = useNavigate();
-    
+
     const [inputs, setInputs] = useState([]);
 
     const handleChange = (event) => {
@@ -15,12 +15,12 @@ function AddCourse() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
- 
+
         axios.post('http://localhost:81/react/api/save', inputs).then(function(response){
             console.log(response.data);
             navigate('/addcourse');
         });
-         
+
     }
 
     return (
@@ -34,7 +34,7 @@ function AddCourse() {
                 <input name="name" onChange={handleChange} classname="appearance-none block w-full bg-[#ffd6d6] border border-[#ffd6d6] rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-[#880808]" id="grid-password" type="text" placeholder="" />
                 </div>
             </div>
-            
+
             <div classname="flex flex-wrap -mx-3 mb-6">
                 <div classname="w-full px-3">
                 <label classname="block uppercase tracking-wide text-xs font-bold mb-2" for="grid-password">
@@ -79,5 +79,5 @@ function AddCourse() {
       </div>
     );
   }
-  
+
 export default AddCourse;
