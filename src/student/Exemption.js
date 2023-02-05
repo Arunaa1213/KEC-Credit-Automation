@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Exemption() {
+  const navigate = useNavigate();
   const [inputs, setInputs] = useState([]);
 
   const handleChange = (event) => {
@@ -13,86 +14,91 @@ function Exemption() {
   };
 
   const handleSubmit = (event) => {
+    console.log("pressed");
     event.preventDefault();
     axios
       .post("http://localhost:81/credit_automation/exemption.php", inputs)
       .then(function (response) {
         console.log(response.data);
-        // navigate("/addcourse");
+        navigate("/addcourse");
       });
   };
   return (
-    <form class="w-full max-w-lg" onSubmit={handleSubmit}>
-      <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full px-3 mb-6 md:mb-0">
+    <form className="w-full max-w-lg" onSubmit={handleSubmit}>
+      <div className="flex flex-wrap -mx-3 mb-6">
+        <div className="w-full px-3 mb-6 md:mb-0">
           <label
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="grid-roll"
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="roll"
           >
             Roll Number
           </label>
           <input
-            class="appearance-none block w-full bg-pLC text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            className="appearance-none block w-full bg-pLC text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
             id="grid-roll"
+            name="roll"
             type="text"
             placeholder="20CSR020"
             onChange={handleChange}
           />
         </div>
-        <div class="w-full px-3">
+        <div className="w-full px-3">
           <label
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="grid-sem"
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="sem"
           >
             Semester
           </label>
           <input
-            class="appearance-none block w-full bg-pLC text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            className="appearance-none block w-full bg-pLC text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id="grid-sem"
             type="text"
+            name="sem"
             placeholder="VII"
             onChange={handleChange}
           />
         </div>
       </div>
-      <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full px-3">
+      <div className="flex flex-wrap -mx-3 mb-6">
+        <div className="w-full px-3">
           <label
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="grid-Courses"
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="courses"
           >
             Course name to exempt:
           </label>
           <input
-            class="appearance-none block w-full bg-pLC text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            className="appearance-none block w-full bg-pLC text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id="grid-courses"
             type="text"
+            name="courses"
             placeholder="Academic course"
             onChange={handleChange}
           />
         </div>
       </div>
-      <div class="flex flex-wrap -mx-3 mb-2">
-        <div class="w-full  px-3 mb-6 md:mb-0">
+      <div className="flex flex-wrap -mx-3 mb-2">
+        <div className="w-full  px-3 mb-6 md:mb-0">
           <label
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="grid-credit"
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="credit"
           >
             Credit course:
           </label>
           <input
-            class="appearance-none block w-full bg-pLC text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            className="appearance-none block w-full bg-pLC text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id="grid-credit"
             type="text"
+            name="credit"
             placeholder="Credit course"
             onChange={handleChange}
           />
         </div>
 
-        <div class="md:w-full ">
+        <div className="md:w-full ">
           <button
-            class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-            type="button"
+            className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+            type="submit"
           >
             Sign Up
           </button>
