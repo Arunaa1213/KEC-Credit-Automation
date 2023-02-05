@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 function Exemption() {
   const navigate = useNavigate();
   const [inputs, setInputs] = useState([]);
