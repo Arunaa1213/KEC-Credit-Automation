@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import StaffHome from "../StaffHome.js";
 
 import { useNavigate } from "react-router-dom";
 function StaffLogin() {
@@ -18,7 +17,7 @@ function StaffLogin() {
       fData.append("name", name);
       fData.append("password", password);
       axios.post(url, fData).then((response) => {
-        if (response.data.Status == "Invalid") {
+        if (response.data.Status === "Invalid") {
           alert("Invalid user");
         } else {
           navigate("/staffHome");
@@ -74,7 +73,7 @@ function StaffLogin() {
               className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
-          <a href="#" className="text-xs text-purple-600 hover:underline">
+          <a href="#/" className="text-xs text-purple-600 hover:underline">
             Forget Password?
           </a>
           <div className="mt-6">
