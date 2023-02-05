@@ -17,26 +17,29 @@ const [users, setUsers] = useState([]);
 
     return (
         <div>
-            <table className="table-fixed">
-              <thead>
+            <div className="flex flex-col items-center mt-4">
+                <h2>COLLEGE OFFERING COURSES</h2>
+            </div>
+            <table className="table-fixed w-11/12 border-separate border-spacing-1 text-center">
+              <thead className="bg-pMC text-pLC border border-pC">
                 <tr>
-                  <th className="w-1/4 px-4 py-2">Course Code</th>
-                  <th className="w-1/4 px-4 py-2">Course Name</th>
-                  <th className="w-1/4 px-4 py-2">Weeks</th>
-                  <th className="w-1/4 px-4 py-2">For</th>
-                  <th className="w-1/4 px-4 py-2">Credits</th>
+                  <th className="w-1/4 p-0 sm:px-4 py-2 border border-pLC break-words">Course Code</th>
+                  <th className="w-1/4 p-0 sm:px-4 py-2 border border-pLC break-words">Course Name</th>
+                  <th className="w-1/4 p-0 sm:px-4 py-2 border border-pLC break-words">Weeks</th>
+                  <th className="w-1/4 p-0 sm:px-4 py-2 border border-pLC break-words">For</th>
+                  <th className="w-1/4 p-0 sm:px-4 py-2 border border-pLC break-words">Credits</th>
                 </tr>
               </thead>
               <tbody>
               {users.map((user, key) =>
-                        <tr key={key}>
-                            <td>{user.course_code}</td>
-                            <td>{user.course_name}</td>
-                            <td>{user.course_duration}</td>
-                            <td>{user.course_is_for} Year</td>
-                            <td>{user.course_credit}</td>
-                            <td className="" >
-                                <button onClick={()=>{}} className="">Opt In</button>
+                        <tr key={key} className="bg-pLC">
+                            <td className="border border-pC">{user.course_code}</td>
+                            <td className="border border-pC">{user.course_name}</td>
+                            <td className="border border-pC">{user.course_duration}</td>
+                            <td className="border border-pC">{user.course_is_for} Year</td>
+                            <td className="border border-pC">{user.course_credit}</td>
+                            <td className="border border-pC" >
+                                <button onClick={()=>{}} className="bg-pLC hover:bg-pMC text-pC hover:text-pLC font-bold py-2 px-4 rounded-full whitespace-nowrap	"><p>Opt-In</p></button>
                             </td>
                         </tr>
                     )}
