@@ -7,11 +7,6 @@ function Home() {
       <div>home</div>
       <Link to="studentLogin">Student Login</Link>
       <Link to="staffLogin">Staff Login</Link>
-
-      <Routes>
-        <Route path="/studentLogin" element={<StudentLogin />} />
-        <Route path="/staffLogin" element={<StaffLogin />} />
-      </Routes>
     </div>
   );
 }

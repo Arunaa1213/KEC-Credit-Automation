@@ -4,10 +4,6 @@ function StaffHome() {
   return (
     <div>
       <Link to="/addcourse">Add course</Link>
-
-      <Routes>
-        <Route path="/addcourse" element={<AddCourse />} />
-      </Routes>
     </div>
   );
 }
