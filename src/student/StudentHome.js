@@ -1,6 +1,5 @@
-import { Routes, Route, HashRouter, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import StudentNav from "../student/StudentNav";
-import AddNPTELCourse from "./course/AddNPTELCourse";
 import OptCourse from "./course/OptCouse";
 import Exemption from "./Exemption";
 function StudentHome() {

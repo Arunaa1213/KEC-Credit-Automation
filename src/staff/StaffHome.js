@@ -1,7 +1,5 @@
-import StaffNav from "../staff/StaffNav";
-import { Routes, Route, HashRouter, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import AddCourse from "./course/AddCourse";
-import AddNPTELCourse from "../student/course/AddNPTELCourse";
 function StaffHome() {
   return (
     <div>

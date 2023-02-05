@@ -1,4 +1,4 @@
-import { Routes, Route, HashRouter, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import StudentLogin from "./student/login/StudentLogin";
 import StaffLogin from "./staff/login/StaffLogin";
 function Home() {
