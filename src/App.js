@@ -6,7 +6,7 @@ import StaffHome from "./staff/StaffHome";
 import OptCourse from "./student/course/OptCouse";
 import StudentLogin from "./student/login/StudentLogin";
 import StudentHome from "./student/StudentHome";
-
+import Exemption from "./student/Exemption";
 function App() {
   return (
     <div>
@@ -19,6 +19,7 @@ function App() {
           <Route path="/studentlogin" element={<StudentLogin />} />
           <Route path="/optcourse" element={<OptCourse />} />
           <Route path="/addcourse" element={<AddCourse />} />
+          <Route path="/exemption" element={<Exemption />} />
         </Routes>
       </HashRouter>
     </div>

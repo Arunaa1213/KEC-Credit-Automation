@@ -7,7 +7,7 @@ function StudentLogin() {
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const handleSubmit = () => {
+  async function handleSubmit() {
     if (name.length === 0) {
       alert("name is empty");
     } else if (password.length === 0) {
@@ -17,28 +17,23 @@ function StudentLogin() {
       let fData = new FormData();
       fData.append("name", name);
       fData.append("password", password);
-      axios
+      await axios
         .post(url, fData)
-        .then((response) => navigate("/StudentHome"))
+        .then((response) => {
+          console.log(response);
+          navigate("/StudentHome");
+        })
         .catch((error) => alert(error));
     }
-  };
+  }
   const handleName = (event) => {
     event.persist();
     console.log(event.target.value);
-    // setValues((values) => ({
-    //   ...values,
-    //   name: event.target.value,
-    // }));
     setName(event.target.value);
   };
   const handlePass = (event) => {
     event.persist();
     console.log(event.target.value);
-    // setValues((values) => ({
-    //   ...values,
-    //   password: event.target.value,
-    // }));
     setPassword(event.target.value);
   };
   return (

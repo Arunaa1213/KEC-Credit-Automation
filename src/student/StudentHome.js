@@ -1,9 +1,6 @@
+import StudentNav from "../student/StudentNav";
 function StudentHome() {
-    return (
-      <div >
-        StudentHome
-      </div>
-    );
-  }
-  
+  return <StudentNav />;
+}
+
 export default StudentHome;
