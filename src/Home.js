@@ -1,12 +1,10 @@
-import { Routes, Route, Link } from "react-router-dom";
-import StudentLogin from "./student/login/StudentLogin";
-import StaffLogin from "./staff/login/StaffLogin";
+import { Link } from "react-router-dom";
 function Home() {
   return (
     <div>
       <div>home</div>
-      <Link to="studentLogin">Student Login</Link>
-      <Link to="staffLogin">Staff Login</Link>
+      <Link to="/studentLogin">Student Login</Link>
+      <Link to="/staffLogin">Staff Login</Link>
     </div>
   );
 }

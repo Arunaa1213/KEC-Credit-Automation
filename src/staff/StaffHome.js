@@ -1,5 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
-import AddCourse from "./course/AddCourse";
+import { Link } from "react-router-dom";
 function StaffHome() {
   return (
     <div>
