@@ -16,7 +16,10 @@ function Exemption() {
     console.log("pressed");
     event.preventDefault();
     axios
-      .post("http://localhost:81/KEC-Credit-Automation-DB/exemption.php", inputs)
+      .post(
+        "http://localhost:81/KEC-Credit-Automation-DB/exemption.php",
+        inputs
+      )
       .then(function (response) {
         console.log(response.data);
         navigate("/addcourse");
@@ -25,7 +28,7 @@ function Exemption() {
   return (
     <form className="w-full max-w-lg" onSubmit={handleSubmit}>
       <div className="flex flex-wrap -mx-3 mb-6">
-        <div className="w-full px-3 mb-6 md:mb-0">
+        <div className="w-1/2 px-3 mb-6 md:mb-0">
           <label
             className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
             htmlFor="roll"
@@ -41,7 +44,7 @@ function Exemption() {
             onChange={handleChange}
           />
         </div>
-        <div className="w-full px-3">
+        <div className="w-1/2 px-3">
           <label
             className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
             htmlFor="sem"
@@ -59,50 +62,144 @@ function Exemption() {
         </div>
       </div>
       <div className="flex flex-wrap -mx-3 mb-6">
-        <div className="w-full px-3">
+        <div className="w-1/2 px-3">
           <label
             className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            htmlFor="courses"
+            htmlFor="type"
           >
-            Course name to exempt:
+            Type of Course(PE/OE)
           </label>
           <input
             className="appearance-none block w-full bg-pLC text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id="grid-courses"
             type="text"
-            name="courses"
+            name="type"
             placeholder="Academic course"
             onChange={handleChange}
           />
         </div>
-      </div>
-      <div className="flex flex-wrap -mx-3 mb-2">
-        <div className="w-full  px-3 mb-6 md:mb-0">
+        <div className="w-1/2  px-3 mb-6 md:mb-0">
           <label
             className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            htmlFor="credit"
+            htmlFor="code"
           >
-            Credit course:
+            course code:
           </label>
           <input
             className="appearance-none block w-full bg-pLC text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id="grid-credit"
             type="text"
-            name="credit"
+            name="code"
             placeholder="Credit course"
             onChange={handleChange}
           />
         </div>
-
-        <div className="md:w-full ">
-          <button
-            className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-            type="submit"
+      </div>
+      <div className="flex flex-wrap -mx-3 mb-6">
+        <div className="w-1/2 px-3">
+          <label
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="name"
           >
-            Sign Up
-          </button>
+            Name of course:
+          </label>
+          <input
+            className="appearance-none block w-full bg-pLC text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            id="grid-courses"
+            type="text"
+            name="name"
+            placeholder="Academic course"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="w-1/2 px-3">
+          <label
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="credit"
+          >
+            course credit:
+          </label>
+          <input
+            className="appearance-none block w-full bg-pLC text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            id="grid-courses"
+            type="text"
+            name="credit"
+            placeholder="Academic course"
+            onChange={handleChange}
+          />
         </div>
       </div>
+
+      <h4 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+        One/Two credit/NPTEL/Foreign language/NCC studies courses used to exempt
+        this course
+      </h4>
+      <br></br>
+      {/* <div className="flex flex-wrap mx-0 mb-2"> */}
+      <div className="flex flex-wrap -mx-3 mb-6">
+        <div className="w-1/2 px-3">
+          <label
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="code1"
+          >
+            course code:
+          </label>
+          <input
+            className="appearance-none block w-full bg-pLC text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            id="grid-courses"
+            type="text"
+            name="code1"
+            placeholder="course code"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="w-1/2 px-3">
+          <label
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="credit1"
+          >
+            course credit:
+          </label>
+          <input
+            className="appearance-none block w-full bg-pLC text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            id="grid-courses"
+            type="text"
+            name="credit1"
+            placeholder="credits used"
+            onChange={handleChange}
+          />
+        </div>
+      </div>
+      <div className="flex flex-wrap -mx-3 mb-6">
+        <div className="w-full px-3">
+          <label
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="name1"
+          >
+            course name:
+          </label>
+          <input
+            className="appearance-none block w-full bg-pLC text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            id="grid-courses"
+            type="text"
+            name="name1"
+            placeholder="course name"
+            onChange={handleChange}
+          />
+        </div>
+      </div>
+      {/* <div className="flex flex-wrap -mx-3 mb-6">
+          
+        </div> */}
+      <div className="md:w-full ">
+        <button
+          className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+      {/* </div> */}
     </form>
   );
 }
