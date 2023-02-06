@@ -15,6 +15,7 @@ function AddCourse(state) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    inputs["email"] = location.state.user_email;
     axios
       .post(
         "http://localhost:81/KEC-Credit-Automation-DB/addcourse.php",
@@ -25,9 +26,8 @@ function AddCourse(state) {
         navigate("/addcourse");
       });
   };
-  console.log("addcourse", location.state.user_email);
-  console.log("addcourse", location.state.user_name);
-  const staff_email = location.state.user_email;
+
+  //   const staff_email = location.state.user_email;
   return (
     <div className="text-pC max-w-lg">
       <div className="flex flex-col items-center mt-4 font-extrabold">

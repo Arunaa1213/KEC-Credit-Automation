@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const StudentNav = () => {
   const [nav, setNav] = useState(false);
+  const location = useLocation();
 
   const handleNav = () => {
     setNav(!nav);
   };
+  console.log("nav", location.state.user_roll);
   return (
     <div className="flex justify-around items-center flex-wrap h-42 relative">
       <div className="text-pC flex justify-between items-center h-24 w-full mx-12  font-bold">
@@ -17,13 +19,37 @@ const StudentNav = () => {
 
         <ul className="hidden sm:flex">
           <li className="p-4">
-            <Link to="/addnptelcourse">Add NPTEL Course</Link>
+            <Link
+              to="/addnptelcourse"
+              state={{
+                user_roll: location.state.user_roll,
+                user_name: location.state.user_name,
+              }}
+            >
+              Add NPTEL Course
+            </Link>
           </li>
           <li className="p-4">
-            <Link to="/optcourse">Opt course</Link>
+            <Link
+              to="/optcourse"
+              state={{
+                user_roll: location.state.user_roll,
+                user_name: location.state.user_name,
+              }}
+            >
+              Opt course
+            </Link>
           </li>
           <li className="p-4">
-            <Link to="/exemption">Exemption</Link>
+            <Link
+              to="/exemption"
+              state={{
+                user_email: location.state.user_roll,
+                user_name: location.state.user_name,
+              }}
+            >
+              Exemption
+            </Link>
           </li>
         </ul>
         <div onClick={handleNav} className="block sm:hidden mr-4 align-middle	">
