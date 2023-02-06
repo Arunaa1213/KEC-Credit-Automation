@@ -7,6 +7,7 @@ module.exports = {
         pC: "#660000",
         pMC: "#880808",
         pLC: "#ffd6d6",
+        pELC: "#ffebeb",
       },
     },
   },

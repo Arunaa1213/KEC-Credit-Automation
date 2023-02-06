@@ -3,38 +3,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 function StudentLogin() {
   const navigate = useNavigate();
-  // const [name, setName] = useState("");
-  // const [password, setPassword] = useState("");
-  // async function handleSubmit() {
-  //   if (name.length === 0) {
-  //     alert("name is empty");
-  //   } else if (password.length === 0) {
-  //     alert("password is empty");
-  //   } else {
-  //     const url = "http://localhost:81/credit_automation/studentLogin.php";
-  //     let fData = new FormData();
-  //     fData.append("name", name);
-  //     fData.append("password", password);
-  //     console.log(fData);
-  //     await axios
-  //       .post(url, fData)
-  //       .then((response) => {
-  //         console.log(response);
-  //         // if (response) {
-  //         //   navigate("/StudentHome");
-  //         // }
-  //       })
-  //       .catch((error) => alert(error));
-  //   }
-  // }
-  // const handleName = (event) => {
-  //   event.persist();
-  //   setName(event.target.value);
-  // };
-  // const handlePass = (event) => {
-  //   event.persist();
-  //   setPassword(event.target.value);
-  // };
   const [inputs, setInputs] = useState([]);
 
   const handleChange = (event) => {
@@ -59,60 +27,50 @@ function StudentLogin() {
   };
 
   return (
-    <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
-      <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
-        <h1 className="text-3xl font-semibold text-center text-purple-700 underline">
-          Log in
+    <div className="relative flex flex-col justify-center min-h-screen overflow-hidden bg-pELC">
+      <div className="w-3/4 min-w-max max-w-xl p-6 m-auto bg-white rounded-md shadow-md">
+        <h1 className="text-3xl font-bold text-center text-pC ">
+          Student Log In
         </h1>
         <form className="mt-6" onSubmit={handleSubmit}>
           <div className="mb-2">
             <label
               htmlFor="username"
-              className="block text-sm font-semibold text-gray-800"
+              className="block text-sm font-semibold text-pMC"
             >
-              name
+              Roll Number 
             </label>
-            <input
+            <input required
               name="username"
               type="text"
               onChange={handleChange}
-              className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              className="block w-full px-4 py-2 mt-2 text-pC bg-pLC border rounded-md focus:border-pC focus:outline-none focus:bg-white"
             />
           </div>
           <div className="mb-2">
             <label
               htmlFor="password"
-              className="block text-sm font-semibold text-gray-800"
+              className="block text-sm font-semibold text-pMC"
             >
               Password
             </label>
-            <input
+            <input required
               name="password"
               type="password"
               onChange={handleChange}
-              className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              className="block w-full px-4 py-2 mt-2 text-pC bg-pLC border rounded-md focus:border-pC focus:outline-none focus:bg-white"
             />
           </div>
-          <a href="#/" className="text-xs text-purple-600 hover:underline">
-            Forget Password?
-          </a>
-          <div className="mt-6">
+          
+          <div className="mt-6 flex flec-col justify-center">
             <button
               type="submit"
-              className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
+              className="px-4 py-2 tracking-wide text-white font-semibold transition-colors duration-200 transform bg-pC rounded-md hover:bg-pLC hover:text-pC focus:outline-none focus:bg-pMC"
             >
-              Login
+              Log In
             </button>
           </div>
         </form>
-
-        <p className="mt-8 text-xs font-light text-center text-gray-700">
-          {" "}
-          Don't have an account?{" "}
-          <a href="#/" className="font-medium text-purple-600 hover:underline">
-            Sign up
-          </a>
-        </p>
       </div>
     </div>
   );
