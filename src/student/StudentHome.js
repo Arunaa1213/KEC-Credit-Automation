@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import StudentNav from "../student/StudentNav";
 import { useLocation } from "react-router-dom";
 function StudentHome(state) {
