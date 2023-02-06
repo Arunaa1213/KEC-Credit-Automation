@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import StaffNav from "./StaffNav";
 function StaffHome() {
   return (
     <div>
-      <Link to="/addcourse">Add course</Link>
+      <StaffNav />
     </div>
   );
 }
