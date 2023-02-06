@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link } from "react-router-dom";
-
-const StaffNav = () => {
+import { useLocation } from "react-router-dom";
+const StaffNav = (state) => {
   const [nav, setNav] = useState(false);
-
+  const location = useLocation();
   const handleNav = () => {
     setNav(!nav);
   };
+
   return (
     <div className="flex justify-between items-center flex-wrap h-42 relative">
       <div className="bg-pC text-white flex justify-between items-center h-24 w-full  ">
@@ -17,7 +18,15 @@ const StaffNav = () => {
 
         <ul className="hidden md:flex">
           <li className="p-4">
-            <Link to="/addcourse">Add course</Link>
+            <Link
+              to="/addcourse"
+              state={{
+                user_email: location.state.user_email,
+                user_name: location.state.user_name,
+              }}
+            >
+              Add course
+            </Link>
           </li>
         </ul>
         <div onClick={handleNav} className="block md:hidden">

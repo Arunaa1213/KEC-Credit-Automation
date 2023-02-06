@@ -24,7 +24,8 @@ function StaffLogin() {
           console.log(response.data[0]["staff_name"]);
           navigate("/staffhome", {
             state: {
-              current_user: response.data[0]["staff_name"],
+              user_email: response.data[0]["email"],
+              user_name: response.data[0]["staff_name"],
             },
           });
         }
