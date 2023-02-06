@@ -16,7 +16,7 @@ function Exemption() {
     console.log("pressed");
     event.preventDefault();
     axios
-      .post("http://localhost:81/credit_automation/exemption.php", inputs)
+      .post("http://localhost:81/KEC-Credit-Automation-DB/exemption.php", inputs)
       .then(function (response) {
         console.log(response.data);
         navigate("/addcourse");

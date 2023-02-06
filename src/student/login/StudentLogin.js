@@ -15,7 +15,7 @@ function StudentLogin() {
     event.preventDefault();
     console.log(inputs);
     axios
-      .post("http://localhost:81/credit_automation/studentLogin.php", inputs)
+      .post("http://localhost:81/KEC-Credit-Automation-DB/studentLogin.php", inputs)
       .then(function (response) {
         if (response.data.length === 0) {
           alert("invalid");

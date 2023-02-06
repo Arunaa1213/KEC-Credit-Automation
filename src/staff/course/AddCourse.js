@@ -15,7 +15,7 @@ function AddCourse() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('http://localhost:81/credit_automation/addcourse.php', inputs).then(function(response){
+        axios.post('http://localhost:81/KEC-Credit-Automation-DB/addcourse.php', inputs).then(function(response){
             console.log(response.data);
             navigate('/addcourse');
         }); 
