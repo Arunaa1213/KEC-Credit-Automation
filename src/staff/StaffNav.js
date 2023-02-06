@@ -28,6 +28,17 @@ const StaffNav = (state) => {
               Add course
             </Link>
           </li>
+          <li className="p-4">
+            <Link
+              to="/"
+              state={{
+                user_email: location.state.user_email,
+                user_name:  location.state.user_name,
+              }}
+            >
+              Exemption Verification
+            </Link>
+          </li>
         </ul>
         <div onClick={handleNav} className="block sm:hidden mr-4 align-middle">
           {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
@@ -47,9 +58,13 @@ const StaffNav = (state) => {
             <li className="p-4 border-b border-pLC">
               <Link to="/addcourse">Add course</Link>
             </li>
+            <li className="p-4 border-b border-pLC">
+              <Link to="/exemption">Exemption Verification</Link>
+            </li>
           </ul>
         </div>
       </div>
+      <hr class="w-2/3 h-1 mx-auto bg-pC border-0 rounded" />
     </div>
   );
 };

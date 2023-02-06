@@ -48,7 +48,7 @@ const StudentNav = () => {
                 user_name: location.state.user_name,
               }}
             >
-              Exemption
+              Exemption Request
             </Link>
           </li>
         </ul>
@@ -74,11 +74,12 @@ const StudentNav = () => {
               <Link to="/optcourse">Opt course</Link>
             </li>
             <li className="p-4 border-b border-pLC">
-              <Link to="/exemption">Exemption</Link>
+              <Link to="/exemption">Exemption Request</Link>
             </li>
           </ul>
         </div>
       </div>
+      <hr class="w-2/3 h-1 mx-auto bg-pC border-0 rounded" />
     </div>
   );
 };
