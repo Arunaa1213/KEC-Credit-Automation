@@ -4,11 +4,11 @@ import AddCourse from "./staff/course/AddCourse";
 import StaffLogin from "./staff/login/StaffLogin";
 import StaffHome from "./staff/StaffHome";
 import AddNPTELCourse from "./student/course/AddNPTELCourse";
-import Exemption from "./student/course/Exemption";
 import OptCourse from "./student/course/OptCouse";
 import StudentLogin from "./student/login/StudentLogin";
 import StudentHome from "./student/StudentHome";
 import Exemption from "./student/course/Exemption";
+
 function App() {
   return (
     <div>

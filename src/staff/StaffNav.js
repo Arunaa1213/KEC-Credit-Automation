@@ -30,7 +30,7 @@ const StaffNav = (state) => {
           </li>
           <li className="p-4">
             <Link
-              to="/addcourse"
+              to="/"
               state={{
                 user_email: location.state.user_email,
                 user_name:  location.state.user_name,
@@ -64,7 +64,7 @@ const StaffNav = (state) => {
           </ul>
         </div>
       </div>
-      <hr class="w-96 h-1 mx-auto bg-pC border-0 rounded" />
+      <hr class="w-2/3 h-1 mx-auto bg-pC border-0 rounded" />
     </div>
   );
 };

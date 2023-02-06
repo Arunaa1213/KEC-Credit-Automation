@@ -79,7 +79,7 @@ const StudentNav = () => {
           </ul>
         </div>
       </div>
-      <hr class="w-96 h-1 mx-auto bg-pC border-0 rounded" />
+      <hr class="w-2/3 h-1 mx-auto bg-pC border-0 rounded" />
     </div>
   );
 };
