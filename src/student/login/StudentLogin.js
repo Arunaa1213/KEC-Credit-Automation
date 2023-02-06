@@ -21,7 +21,11 @@ function StudentLogin() {
           alert("invalid");
         } else {
           console.log(response.data[0]["studentName"]);
-          navigate("/studenthome");
+          navigate("/studenthome", {
+            state: {
+              current_user: response.data[0]["studentName"],
+            },
+          });
         }
       });
   };
