@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 function StudentHome(state) {
   const location = useLocation();
   return (
-    <div>
+    <div className="bg-pELC h-screen">
       <StudentNav />
       <p className="m-[200px]">helo {location.state.current_user}</p>
     </div>

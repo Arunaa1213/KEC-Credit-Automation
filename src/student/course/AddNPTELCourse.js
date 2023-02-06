@@ -16,7 +16,7 @@ function AddNPTELCourse() {
     const handleSubmit = (event) => {
         console.log(inputs);
         event.preventDefault();
-        axios.post('http://localhost:81/credit_automation/addnptelcourse.php', inputs).then(function(response){
+        axios.post('http://localhost:81/KEC-Credit-Automation-DB/addnptelcourse.php', inputs).then(function(response){
             console.log(response.data);
             navigate('/addnptelcourse');
         }); 

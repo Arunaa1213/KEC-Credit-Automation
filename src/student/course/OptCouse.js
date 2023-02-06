@@ -9,7 +9,7 @@ const [users, setUsers] = useState([]);
     }, []);
  
     function getUsers() {
-        axios.get('http://localhost:81/credit_automation/optcourse.php').then(function(response) {
+        axios.get('http://localhost:81/KEC-Credit-Automation-DB/optcourse.php').then(function(response) {
             console.log(response.data);
             setUsers(response.data);
         });
