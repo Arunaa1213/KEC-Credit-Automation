@@ -88,6 +88,7 @@ function AddCourse(state) {
                 className="block appearance-none w-full bg-pLC border border-pLC py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-pMC"
                 id="year"
               >
+                <option value={"0"}>Choose Year</option>
                 <option value={"I"}>I Year</option>
                 <option value={"II"}>II Year</option>
                 <option value={"III"}>III Year</option>

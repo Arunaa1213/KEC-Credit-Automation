@@ -23,7 +23,7 @@ function StudentLogin() {
         if (response.data.length === 0) {
           alert("invalid");
         } else {
-          console.log(response.data[0]["rollNumber"]);
+          console.log(response.data[0]["studentName"]);
           navigate("/studenthome", {
             state: {
               user_roll: response.data[0]["rollNumber"],

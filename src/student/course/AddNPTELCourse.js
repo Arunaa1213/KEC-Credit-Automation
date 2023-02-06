@@ -26,7 +26,7 @@ function AddNPTELCourse() {
       )
       .then(function (response) {
         console.log(response.data);
-        // navigate("/addnptelcourse");
+        navigate("/addnptelcourse");
       });
   };
 
@@ -70,7 +70,7 @@ function AddNPTELCourse() {
                 className="block appearance-none w-full bg-pLC border border-pLC py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-pMC"
                 id="type"
               >
-                <option value={"Elite+Gold"}>Choose type</option>
+                <option value={"0"}>Choose type</option>
                 <option value={"Elite+Gold"}>Elite+Gold</option>
                 <option value={"Elite+Silver"}>Elite+Silver</option>
                 <option value={"Elite"}>Elite</option>
