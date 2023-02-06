@@ -23,11 +23,15 @@ function StudentLogin() {
         if (response.data.length === 0) {
           alert("invalid");
         } else {
-          console.log(response.data[0]["studentName"]);
           navigate("/studenthome", {
             state: {
               user_roll: response.data[0]["rollNumber"],
               user_name: response.data[0]["studentName"],
+              user_email: response.data[0]["studentEmail"],
+              user_batch: response.data[0]["studentBatch"],
+              user_dept: response.data[0]["department"],
+              user_sec: response.data[0]["section"],
+              user_sem: response.data[0]["currentSemester"],
             },
           });
         }

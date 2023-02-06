@@ -64,7 +64,7 @@ const StaffNav = (state) => {
           </ul>
         </div>
       </div>
-      <hr class="w-2/3 h-1 mx-auto bg-pC border-0 rounded" />
+      <hr className="w-2/3 h-1 mx-auto bg-pC border-0 rounded" />
     </div>
   );
 };

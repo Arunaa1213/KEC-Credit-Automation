@@ -11,7 +11,7 @@ import Exemption from "./student/course/Exemption";
 
 function App() {
   return (
-    <div>
+    <div >
       <HashRouter>
         <Routes>
           <Route path="/" element={<Home />} />
