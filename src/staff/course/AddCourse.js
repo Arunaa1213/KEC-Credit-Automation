@@ -27,6 +27,7 @@ function AddCourse(state) {
   };
   console.log("addcourse", location.state.user_email);
   console.log("addcourse", location.state.user_name);
+  const staff_email = location.state.user_email;
   return (
     <div className="text-pC max-w-lg">
       <div className="flex flex-col items-center mt-4 font-extrabold">
