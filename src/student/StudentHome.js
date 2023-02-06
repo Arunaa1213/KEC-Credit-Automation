@@ -1,7 +1,7 @@
 import StudentNav from "../student/StudentNav";
 function StudentHome() {
   return (
-    <div>
+    <div className="bg-pELC h-screen">
       <StudentNav />
     </div>
   );

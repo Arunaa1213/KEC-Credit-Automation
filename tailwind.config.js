@@ -9,6 +9,9 @@ module.exports = {
         pLC: "#ffd6d6",
         pELC: "#ffebeb",
       },
+      screens: {
+        'xs': '360px',
+      },
     },
   },
   plugins: [],
