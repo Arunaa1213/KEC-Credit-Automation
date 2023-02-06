@@ -15,6 +15,7 @@ function AddCourse(state) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(location.state.user_email);
     inputs["email"] = location.state.user_email;
     axios
       .post(
@@ -23,11 +24,15 @@ function AddCourse(state) {
       )
       .then(function (response) {
         console.log(response.data);
-        navigate("/addcourse");
+        navigate("/addcourse",{
+          state: {
+            user_email: location.state.user_email,
+            user_name:  location.state.user_name,
+          },
+        });
       });
   };
 
-  //   const staff_email = location.state.user_email;
   return (
     <div className="text-pC max-w-lg">
       <div className="flex flex-col items-center mt-4 font-extrabold">
@@ -139,6 +144,26 @@ function AddCourse(state) {
               type="number"
               placeholder="# of Credits"
             />
+          </div>
+        </div>
+        <div className="flex flex-wrap -mx-3 mt-6">
+          <div className="w-full px-3">
+            <label
+              className="block uppercase tracking-wide text-xs font-bold mb-2"
+              htmlFor="marksheet"
+            >
+              Mark Sheet (SpreadSheet Link)
+            </label>
+            <input
+              required
+              name="marksheet"
+              onChange={handleChange}
+              className="appearance-none block w-full bg-pLC border border-pLC rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-pMC"
+              id="marksheet"
+              type="text"
+              placeholder=""
+            />
+            <p className="text-xs text-center">This SpreadSheet will be permenantly used as MarkSheet for this course </p>
           </div>
         </div>
         <div className="flex flex-col items-center mt-4">
