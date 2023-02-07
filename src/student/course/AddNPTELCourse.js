@@ -31,7 +31,8 @@ function AddNPTELCourse() {
   };
 
   return (
-    <div className="text-pC max-w-lg">
+    <div className="relative flex flex-col justify-center min-h-screen overflow-hidden bg-pELC">
+      <div className="w-3/4 min-w-max max-w-xl p-6 m-auto bg-white rounded-md shadow-lg text-pC">
       <div className="flex flex-col items-center mt-4 font-extrabold">
         <h2>ADD NPTEL COURSES</h2>
       </div>
@@ -206,6 +207,7 @@ function AddNPTELCourse() {
           </button>
         </div>
       </form>
+    </div>
     </div>
   );
 }
