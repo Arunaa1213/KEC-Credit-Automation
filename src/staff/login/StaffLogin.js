@@ -16,7 +16,10 @@ function StaffLogin() {
     event.preventDefault();
     console.log(inputs);
     axios
-      .post("http://localhost:81/KEC-Credit-Automation-DB/staffLogin.php", inputs)
+      .post(
+        "http://localhost:81/KEC-Credit-Automation-DB/staffLogin.php",
+        inputs
+      )
       .then(function (response) {
         if (response.data.length === 0) {
           alert("invalid");
@@ -32,16 +35,14 @@ function StaffLogin() {
       });
   };
   return (
-    <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
-      <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
-        <h1 className="text-3xl font-semibold text-center text-purple-700 underline">
-          Log in
-        </h1>
+    <div className="relative flex flex-col justify-center min-h-screen overflow-hidden bg-pELC">
+      <div className="w-3/4 min-w-max max-w-xl p-6 m-auto bg-white rounded-md shadow-md">
+        <h1 className="text-3xl font-bold text-center text-pC">Log in</h1>
         <form className="mt-6" onSubmit={handleSubmit}>
           <div className="mb-2">
             <label
               htmlFor="email"
-              className="block text-sm font-semibold text-gray-800"
+              className="block text-sm font-semibold text-pMC"
             >
               email
             </label>
@@ -49,13 +50,13 @@ function StaffLogin() {
               name="email"
               type="text"
               onChange={handleChange}
-              className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              className="block w-full px-4 py-2 mt-2 text-pC bg-pLC border rounded-md focus:border-pC focus:outline-none focus:bg-white"
             />
           </div>
           <div className="mb-2">
             <label
               htmlFor="password"
-              className="block text-sm font-semibold text-gray-800"
+              className="block text-sm font-semibold text-pMC"
             >
               Password
             </label>
@@ -63,14 +64,14 @@ function StaffLogin() {
               name="password"
               type="password"
               onChange={handleChange}
-              className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              className="block w-full px-4 py-2 mt-2 text-pC bg-pLC border rounded-md focus:border-pC focus:outline-none focus:bg-white"
             />
           </div>
 
-          <div className="mt-6">
+          <div className="mt-6 flex flec-col justify-center">
             <button
               type="submit"
-              className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
+              className="px-4 py-2 tracking-wide text-white font-semibold transition-colors duration-200 transform bg-pC rounded-md hover:bg-pLC hover:text-pC focus:outline-none focus:bg-pMC"
             >
               Login
             </button>

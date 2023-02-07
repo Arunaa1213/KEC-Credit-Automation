@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+
 function AddCourse(state) {
   const navigate = useNavigate();
   const location = useLocation();
@@ -15,6 +16,8 @@ function AddCourse(state) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(location.state.user_email);
+    inputs["email"] = location.state.user_email;
     axios
       .post(
         "http://localhost:81/KEC-Credit-Automation-DB/addcourse.php",
@@ -22,11 +25,15 @@ function AddCourse(state) {
       )
       .then(function (response) {
         console.log(response.data);
-        navigate("/addcourse");
+        navigate("/addcourse",{
+          state: {
+            user_email: location.state.user_email,
+            user_name:  location.state.user_name,
+          },
+        });
       });
   };
-  console.log("addcourse", location.state.user_email);
-  console.log("addcourse", location.state.user_name);
+
   return (
     <div className="text-pC max-w-lg">
       <div className="flex flex-col items-center mt-4 font-extrabold">
@@ -87,6 +94,7 @@ function AddCourse(state) {
                 className="block appearance-none w-full bg-pLC border border-pLC py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-pMC"
                 id="year"
               >
+                <option value={"0"}>Choose Year</option>
                 <option value={"I"}>I Year</option>
                 <option value={"II"}>II Year</option>
                 <option value={"III"}>III Year</option>
@@ -137,6 +145,26 @@ function AddCourse(state) {
               type="number"
               placeholder="# of Credits"
             />
+          </div>
+        </div>
+        <div className="flex flex-wrap -mx-3 mt-6">
+          <div className="w-full px-3">
+            <label
+              className="block uppercase tracking-wide text-xs font-bold mb-2"
+              htmlFor="marksheet"
+            >
+              Mark Sheet (SpreadSheet Link)
+            </label>
+            <input
+              required
+              name="marksheet"
+              onChange={handleChange}
+              className="appearance-none block w-full bg-pLC border border-pLC rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-pMC"
+              id="marksheet"
+              type="text"
+              placeholder=""
+            />
+            <p className="text-xs text-center">This SpreadSheet will be permenantly used as MarkSheet for this course </p>
           </div>
         </div>
         <div className="flex flex-col items-center mt-4">

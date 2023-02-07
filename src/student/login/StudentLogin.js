@@ -15,15 +15,23 @@ function StudentLogin() {
     event.preventDefault();
     console.log(inputs);
     axios
-      .post("http://localhost:81/KEC-Credit-Automation-DB/studentLogin.php", inputs)
+      .post(
+        "http://localhost:81/KEC-Credit-Automation-DB/studentLogin.php",
+        inputs
+      )
       .then(function (response) {
         if (response.data.length === 0) {
           alert("invalid");
         } else {
-          console.log(response.data[0]["studentName"]);
           navigate("/studenthome", {
             state: {
-              current_user: response.data[0]["studentName"],
+              user_roll: response.data[0]["rollNumber"],
+              user_name: response.data[0]["studentName"],
+              user_email: response.data[0]["studentEmail"],
+              user_batch: response.data[0]["studentBatch"],
+              user_dept: response.data[0]["department"],
+              user_sec: response.data[0]["section"],
+              user_sem: response.data[0]["currentSemester"],
             },
           });
         }
@@ -42,9 +50,10 @@ function StudentLogin() {
               htmlFor="username"
               className="block text-sm font-semibold text-pMC"
             >
-              Roll Number 
+              Roll Number
             </label>
-            <input required
+            <input
+              required
               name="username"
               type="text"
               onChange={handleChange}
@@ -58,14 +67,15 @@ function StudentLogin() {
             >
               Password
             </label>
-            <input required
+            <input
+              required
               name="password"
               type="password"
               onChange={handleChange}
               className="block w-full px-4 py-2 mt-2 text-pC bg-pLC border rounded-md focus:border-pC focus:outline-none focus:bg-white"
             />
           </div>
-          
+
           <div className="mt-6 flex flec-col justify-center">
             <button
               type="submit"

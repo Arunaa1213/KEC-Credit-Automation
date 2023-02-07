@@ -7,8 +7,8 @@ import AddNPTELCourse from "./student/course/AddNPTELCourse";
 import OptCourse from "./student/course/OptCouse";
 import StudentLogin from "./student/login/StudentLogin";
 import StudentHome from "./student/StudentHome";
-import Exemption from "./student/Exemption";
-import AdminHome from "./admin/AdminHome";
+import Exemption from "./student/course/Exemption";
+
 function App() {
   return (
     <div>
