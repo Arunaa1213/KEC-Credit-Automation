@@ -8,7 +8,7 @@ import OptCourse from "./student/course/OptCouse";
 import StudentLogin from "./student/login/StudentLogin";
 import StudentHome from "./student/StudentHome";
 import Exemption from "./student/course/Exemption";
-
+import AdminHome from "./admin/AdminHome";
 function App() {
   return (
     <div>
