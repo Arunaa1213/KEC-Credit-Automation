@@ -8,10 +8,10 @@ import OptCourse from "./student/course/OptCouse";
 import StudentLogin from "./student/login/StudentLogin";
 import StudentHome from "./student/StudentHome";
 import Exemption from "./student/course/Exemption";
-
+import AdminHome from "./admin/AdminHome";
 function App() {
   return (
-    <div >
+    <div>
       <HashRouter>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -23,6 +23,7 @@ function App() {
           <Route path="/addcourse" element={<AddCourse />} />
           <Route path="/exemption" element={<Exemption />} />
           <Route path="/addnptelcourse" element={<AddNPTELCourse />} />
+          <Route path="/adminhome" element={<AdminHome />} />
         </Routes>
       </HashRouter>
     </div>
