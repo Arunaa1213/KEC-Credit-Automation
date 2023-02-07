@@ -30,7 +30,7 @@ const StaffNav = (state) => {
           </li>
           <li className="p-4">
             <Link
-              to="/"
+              to="/exemptionverification"
               state={{
                 user_email: location.state.user_email,
                 user_name:  location.state.user_name,
