@@ -9,6 +9,7 @@ import StudentLogin from "./student/login/StudentLogin";
 import StudentHome from "./student/StudentHome";
 import Exemption from "./student/course/Exemption";
 import AdminHome from "./admin/AdminHome";
+import ExemptionVerification from "./staff/course/ExemptionVerification";
 function App() {
   return (
     <div>
@@ -24,6 +25,7 @@ function App() {
           <Route path="/exemption" element={<Exemption />} />
           <Route path="/addnptelcourse" element={<AddNPTELCourse />} />
           <Route path="/adminhome" element={<AdminHome />} />
+          <Route path="/exemptionverification" element={<ExemptionVerification/>}/>
         </Routes>
       </HashRouter>
     </div>

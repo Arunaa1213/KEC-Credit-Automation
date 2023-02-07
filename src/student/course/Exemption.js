@@ -17,7 +17,7 @@ function Exemption() {
     event.preventDefault();
     axios
       .post(
-        "http://localhost:81/KEC-Credit-Automation-DB/exemption.php",
+        "http://localhost:81/KEC-Credit-Automation-DB/exemptionRequest.php",
         inputs
       )
       .then(function (response) {
