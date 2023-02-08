@@ -15,6 +15,7 @@ function Exemption() {
   const handleSubmit = (event) => {
     console.log("pressed");
     event.preventDefault();
+    inputs["approve_status"] = 0 ;
     axios
       .post(
         "http://localhost:81/KEC-Credit-Automation-DB/exemptionRequest.php",
