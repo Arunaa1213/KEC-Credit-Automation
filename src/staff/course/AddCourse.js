@@ -17,7 +17,6 @@ function AddCourse(state) {
     console.log(value);
     setInputs((values) => ({ ...values, [name]: value }));
   };
-  var year1 = "";
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(location.state.user_email);
