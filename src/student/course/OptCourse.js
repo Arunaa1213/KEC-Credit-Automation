@@ -6,7 +6,7 @@ export default function OptCourse() {
   const navigate = useNavigate();
   const location = useLocation();
   const [users, setUsers] = useState([]);
-  const [input, setInputs] = useState();
+  // const [input, setInputs] = useState();
   useEffect(() => {
     getUsers();
   }, []);
@@ -22,9 +22,9 @@ export default function OptCourse() {
   function handleSubmit(e, value) {
     e.preventDefault();
     // console.log(value);
-    setInputs(value);
+    // setInputs(value);
     // console.log(input);
-    var inputs = { student_id: location.state.user_roll, course_code: input };
+    var inputs = { student_id: location.state.user_roll, course_code: value };
 
     console.log(inputs);
     axios
