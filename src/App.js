@@ -4,7 +4,7 @@ import AddCourse from "./staff/course/AddCourse";
 import StaffLogin from "./staff/login/StaffLogin";
 import StaffHome from "./staff/StaffHome";
 import AddNPTELCourse from "./student/course/AddNPTELCourse";
-import OptCourse from "./student/course/OptCouse";
+import OptCourse from "./student/course/OptCourse";
 import StudentLogin from "./student/login/StudentLogin";
 import StudentHome from "./student/StudentHome";
 import Exemption from "./student/course/Exemption";
@@ -25,7 +25,10 @@ function App() {
           <Route path="/exemption" element={<Exemption />} />
           <Route path="/addnptelcourse" element={<AddNPTELCourse />} />
           <Route path="/adminhome" element={<AdminHome />} />
-          <Route path="/exemptionverification" element={<ExemptionVerification/>}/>
+          <Route
+            path="/exemptionverification"
+            element={<ExemptionVerification />}
+          />
         </Routes>
       </BrowserRouter>
     </div>
