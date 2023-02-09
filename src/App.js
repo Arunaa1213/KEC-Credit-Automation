@@ -11,6 +11,7 @@ import Exemption from "./student/course/Exemption";
 import AdminHome from "./admin/AdminHome";
 import ExemptionVerification from "./staff/course/ExemptionVerification";
 import ExcemptionVerificationCard from "./staff/course/ExemptionVerificationCard";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
