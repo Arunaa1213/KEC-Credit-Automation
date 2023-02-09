@@ -2,22 +2,28 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-
+import Multiselect from "multiselect-react-dropdown";
 function AddCourse(state) {
   const navigate = useNavigate();
   const location = useLocation();
   const [inputs, setInputs] = useState([]);
 
+  const [options] = useState([1, 2, 3, 4, 5]);
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
+    console.log(name);
+    // console.log(name);
+    console.log(value);
     setInputs((values) => ({ ...values, [name]: value }));
   };
-
+  var year1 = "";
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(location.state.user_email);
     inputs["email"] = location.state.user_email;
+    // inputs["course_is_for"] = year1;
+    console.log(inputs);
     axios
       .post(
         "http://localhost:81/KEC-Credit-Automation-DB/addcourse.php",
@@ -25,15 +31,14 @@ function AddCourse(state) {
       )
       .then(function (response) {
         console.log(response.data);
-        navigate("/addcourse",{
+        navigate("/addcourse", {
           state: {
             user_email: location.state.user_email,
-            user_name:  location.state.user_name,
+            user_name: location.state.user_name,
           },
         });
       });
   };
-
   return (
     <div className="text-pC max-w-lg">
       <div className="flex flex-col items-center mt-4 font-extrabold">
@@ -78,9 +83,8 @@ function AddCourse(state) {
             />
           </div>
         </div>
-
         <div className="flex flex-wrap -mx-3 mb-2">
-          <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+          <div className="w-full px-3">
             <label
               className="block uppercase tracking-wide text-xs font-bold mb-2"
               htmlFor="year"
@@ -88,18 +92,72 @@ function AddCourse(state) {
               For Which Year
             </label>
             <div className="relative">
+              {/* <div className="appearance-none block w-full bg-pLC border border-pLC rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-pMC"> */}
+              <Multiselect
+                options={options}
+                // onSearch={handleSearch}
+                onRemove={(event) => {
+                  console.log(event);
+                }}
+                onSelect={(event) => {
+                  console.log(event);
+                  inputs["course_is_for"] = event;
+                }}
+                // loading={loading}
+                isObject={false}
+                showCheckbox
+                // displayValue="year"
+              />
+
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
+                <svg
+                  className="fill-current h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-wrap -mx-3 mb-2">
+          <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+            <label
+              className="block uppercase tracking-wide text-xs font-bold mb-2"
+              htmlFor="weeks"
+            >
+              Duration in Hours
+            </label>
+            <input
+              required
+              name="weeks"
+              onChange={handleChange}
+              className="appearance-none block w-full bg-pLC border border-pLC rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-pMC"
+              id="weeks"
+              type="number"
+              placeholder="# of Hours"
+            />
+          </div>
+          <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+            <label
+              className="block uppercase tracking-wide text-xs font-bold mb-2"
+              htmlFor="credits"
+            >
+              Credits
+            </label>
+            <div className="relative">
               <select
-                name="year"
+                name="credits"
                 onChange={handleChange}
-                className="block appearance-none w-full bg-pLC border border-pLC py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-pMC"
-                id="year"
+                className="appearance-none block w-full bg-pLC border border-pLC rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-pMC"
+                id="credits"
+                type="number"
+                placeholder="# of Credits"
               >
-                <option value={"0"}>Choose Year</option>
-                <option value={"I"}>I Year</option>
-                <option value={"II"}>II Year</option>
-                <option value={"III"}>III Year</option>
-                <option value={"IV"}>IV Year</option>
-                <option value={"V"}>V Year</option>
+                <option value={0}>Choose credit</option>
+                <option value={1}>1 credit</option>
+                <option value={2}>2 credit</option>
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
                 <svg
@@ -112,59 +170,74 @@ function AddCourse(state) {
               </div>
             </div>
           </div>
-          <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-            <label
-              className="block uppercase tracking-wide text-xs font-bold mb-2"
-              htmlFor="weeks"
-            >
-              Duration in Weeks
-            </label>
-            <input
-              required
-              name="weeks"
-              onChange={handleChange}
-              className="appearance-none block w-full bg-pLC border border-pLC rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-pMC"
-              id="weeks"
-              type="number"
-              placeholder="# of Weeks"
-            />
-          </div>
-          <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-            <label
-              className="block uppercase tracking-wide text-xs font-bold mb-2"
-              htmlFor="credits"
-            >
-              Total Credits
-            </label>
-            <input
-              required
-              name="credits"
-              onChange={handleChange}
-              className="appearance-none block w-full bg-pLC border border-pLC rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-pMC"
-              id="credits"
-              type="number"
-              placeholder="# of Credits"
-            />
-          </div>
         </div>
         <div className="flex flex-wrap -mx-3 mt-6">
+          <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+            <label
+              className="block uppercase tracking-wide text-xs font-bold mb-2"
+              htmlFor="fee"
+            >
+              Fee
+            </label>
+            <input
+              required
+              name="fee"
+              onChange={handleChange}
+              className="appearance-none block w-full bg-pLC border border-pLC rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-pMC"
+              id="fee"
+              type="number"
+              placeholder="fee in Rs"
+            />
+          </div>
+          <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+            <label
+              className="block uppercase tracking-wide text-xs font-bold mb-2"
+              htmlFor="facultytype"
+            >
+              Type of Faculty
+            </label>
+            <div className="relative">
+              <select
+                name="facultytype"
+                onChange={handleChange}
+                className="appearance-none block w-full bg-pLC border border-pLC rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-pMC"
+                id="facultytype"
+                type="text"
+                placeholder="Type"
+              >
+                <option value={"0"}>Choose credit</option>
+                <option value={"external"}>External Faculty</option>
+                <option value={"internal"}>Internal Faculty</option>
+              </select>
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
+                <svg
+                  className="fill-current h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col items-center mt-4">
           <div className="w-full px-3">
             <label
               className="block uppercase tracking-wide text-xs font-bold mb-2"
-              htmlFor="marksheet"
+              htmlFor="facultyname"
             >
-              Mark Sheet (SpreadSheet Link)
+              Faculty Name
             </label>
             <input
               required
-              name="marksheet"
+              name="facultyname"
               onChange={handleChange}
               className="appearance-none block w-full bg-pLC border border-pLC rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-pMC"
-              id="marksheet"
+              id="facultyname"
               type="text"
-              placeholder=""
+              placeholder="Teaching faculty name"
             />
-            <p className="text-xs text-center">This SpreadSheet will be permenantly used as MarkSheet for this course </p>
           </div>
         </div>
         <div className="flex flex-col items-center mt-4">

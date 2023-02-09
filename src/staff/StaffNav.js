@@ -22,7 +22,7 @@ const StaffNav = (state) => {
               to="/addcourse"
               state={{
                 user_email: location.state.user_email,
-                user_name:  location.state.user_name,
+                user_name: location.state.user_name,
               }}
             >
               Add course
@@ -33,7 +33,7 @@ const StaffNav = (state) => {
               to="/exemptionverification"
               state={{
                 user_email: location.state.user_email,
-                user_name:  location.state.user_name,
+                user_name: location.state.user_name,
               }}
             >
               Exemption Verification
