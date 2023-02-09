@@ -1,16 +1,18 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Home from "./Home";
-import AddCourse from "./staff/course/AddCourse";
-import StaffLogin from "./staff/login/StaffLogin";
-import StaffHome from "./staff/StaffHome";
-import AddNPTELCourse from "./student/course/AddNPTELCourse";
-import OptCourse from "./student/course/OptCouse";
-import StudentLogin from "./student/login/StudentLogin";
-import StudentHome from "./student/StudentHome";
-import Exemption from "./student/course/Exemption";
-import AdminHome from "./admin/AdminHome";
-import ExemptionVerification from "./staff/course/ExemptionVerification";
-function App() {
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import Home from './Home'
+import AddCourse from './staff/course/AddCourse'
+import StaffLogin from './staff/login/StaffLogin'
+import StaffHome from './staff/StaffHome'
+import AddNPTELCourse from './student/course/AddNPTELCourse'
+import OptCourse from './student/course/OptCouse'
+import StudentLogin from './student/login/StudentLogin'
+import StudentHome from './student/StudentHome'
+import Exemption from './student/course/Exemption'
+import AdminHome from './admin/AdminHome'
+import ExemptionVerification from './staff/course/ExemptionVerification'
+import ExcemptionVerificationCard from './staff/course/ExemptionVerificationCard'
+
+function App () {
   return (
     <div>
       <BrowserRouter>
@@ -25,11 +27,18 @@ function App() {
           <Route path="/exemption" element={<Exemption />} />
           <Route path="/addnptelcourse" element={<AddNPTELCourse />} />
           <Route path="/adminhome" element={<AdminHome />} />
-          <Route path="/exemptionverification" element={<ExemptionVerification/>}/>
+          <Route
+            path="/exemptionverification"
+            element={<ExemptionVerification />}
+          />
+          <Route
+            path="/exemptionverificationcard"
+            element={<ExcemptionVerificationCard />}
+          />
         </Routes>
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
