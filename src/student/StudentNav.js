@@ -13,9 +13,9 @@ const StudentNav = () => {
   return (
     <div className="flex justify-around items-center flex-wrap h-42 relative">
       <div className="text-pC flex justify-between items-center h-24 w-full mx-12  font-bold">
-        <Link to="/studentHome">
+        {/* <Link to="/studenthome"> */}
           <h1 className="text-3xl ml-4 align-middle	"> Student Home </h1>
-        </Link>
+        {/* </Link> */}
 
         <ul className="hidden sm:flex">
           <li className="p-4">

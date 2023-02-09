@@ -1,4 +1,4 @@
-import { Routes, Route, HashRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./Home";
 import AddCourse from "./staff/course/AddCourse";
 import StaffLogin from "./staff/login/StaffLogin";
@@ -13,7 +13,7 @@ import ExemptionVerification from "./staff/course/ExemptionVerification";
 function App() {
   return (
     <div>
-      <HashRouter>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/staffhome" element={<StaffHome />} />
@@ -30,7 +30,7 @@ function App() {
             element={<ExemptionVerification />}
           />
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </div>
   );
 }
