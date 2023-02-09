@@ -39,8 +39,8 @@ function AddCourse(state) {
       });
   };
   return (
-    <div className="text-pC max-w-lg">
-      <div className="flex flex-col items-center mt-4 font-extrabold">
+    <div className="w-3/4 min-w-max max-w-xl p-6 m-auto bg-white rounded-md shadow-md">
+      <div className="text-3xl font-bold text-center text-pC">
         <h2>ADD COLLEGE OFFERING COURSES</h2>
       </div>
       <form className="max-w-lg" onSubmit={handleSubmit}>
