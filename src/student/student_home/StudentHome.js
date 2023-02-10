@@ -1,7 +1,7 @@
-import StudentNav from "../student/StudentNav";
 import { useLocation } from "react-router-dom";
 import AboutStudent from "./AboutStudent";
 import StudentDashBoard from "./StudentDashboard";
+import StudentNav from "./StudentNav";
 
 function StudentHome(state) {
   const location = useLocation();

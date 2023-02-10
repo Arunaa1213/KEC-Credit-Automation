@@ -11,7 +11,6 @@ function ExcemptionVerificationCard () {
       )
       .then(function (response) {
         console.log(response.data)
-        // navigate("/studenthome");
       })
   }
   return (
