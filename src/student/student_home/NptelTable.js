@@ -1,8 +1,8 @@
 export default function NPTELTable (student) {
   return (
     <div className="text-pC ">
-      <div className="h-1/2 flex flex-col justify-evenly">
-        <div className="text-xl font-semibold sm:text-2xl md:text-2xl ml-8 md:-ml-12">
+      
+        <div className="text-xl font-semibold sm:text-2xl md:text-2xl ml-8 mb-4 md:-ml-12">
           NPTEL Courses
         </div>
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -38,7 +38,6 @@ export default function NPTELTable (student) {
             </tbody>
           </table>
         </div>
-      </div>
     </div>
   )
 };

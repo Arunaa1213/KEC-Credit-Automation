@@ -6,7 +6,7 @@ import StudentNav from './StudentNav'
 function StudentHome (state) {
   const location = useLocation()
   return (
-    <div className="bg-pELC w-full h-full px-auto">
+    <div className="bg-pELC w-screen h-screen px-auto">
       <div className="mb-3">
         <StudentNav
           user_roll={location.state.user_roll}

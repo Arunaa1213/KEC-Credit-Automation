@@ -1,6 +1,6 @@
 function AboutStaff(state) {
   return (
-    <div>
+    
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left text-pMC ">
           <tbody>
@@ -53,7 +53,7 @@ function AboutStaff(state) {
           </tbody>
         </table>
       </div>
-    </div>
+  
   );
 }
 

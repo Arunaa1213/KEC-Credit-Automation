@@ -23,9 +23,8 @@ function StaffDashBoard() {
       });
   }
   return (
-    <div className="text-pC ">
-      <div className="h-1/2 flex flex-col justify-evenly">
-        <h1 className="text-xl font-semibold sm:text-2xl md:text-2xl ml-8 md:-ml-12">
+    <div className="text-pC">
+        <h1 className="text-xl font-semibold sm:text-2xl md:text-2xl ml-8 mb-8 md:-ml-12">
           My Courses
         </h1>
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -64,7 +63,6 @@ function StaffDashBoard() {
             </tbody>
           </table>
         </div>
-      </div>
     </div>
   );
 }
