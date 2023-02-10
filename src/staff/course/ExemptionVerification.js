@@ -1,23 +1,51 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-export default function ExemptionVerification () {
-  const navigate = useNavigate()
+export default function ExemptionVerification() {
+  const navigate = useNavigate();
 
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState([]);
+
   useEffect(() => {
-    getUsers()
-  }, [])
+    getUsers();
+  }, []);
 
-  function getUsers () {
+  function getUsers() {
     axios
-      .get('http://localhost:81/KEC-Credit-Automation-DB/displayRequest.php')
+      .get("http://localhost:81/KEC-Credit-Automation-DB/displayRequest.php")
       .then(function (response) {
-        setUsers(response.data)
-      })
+        setUsers(response.data);
+      });
   }
 
+  async function getStudent(inputs, user) {
+    const response = await axios.post(
+      "http://localhost:81/KEC-Credit-Automation-DB/getByRollNo.php",
+      inputs
+      );
+      
+      console.log(response.data);
+    navigate("/exemptionverificationcard", {
+      state: {
+        roll: user.roll,
+        academic_course_name: user.academic_course_name,
+        semester: user.semester,
+        type_of_course: user.type_of_course,
+        academic_course_code: user.academic_course_code,
+        academic_course_credit: user.academic_course_credit,
+        course_code: user.course_code,
+        course_credit: user.course_credit,
+        course_name: user.course_name,
+        student_name: response.data[0]["studentName"],
+        studentEmail: response.data[0]["studentEmail"],
+        studentBatch: response.data[0]["studentBatch"],
+        department: response.data[0]["department"],
+        section: response.data[0]["section"],
+        currentSemester: response.data[0]["currentSemester"],
+      },
+    });
+  }
   return (
     <div className="bg-pELC text-pC h-screen">
       <button className="absolute left-12 top-6" onClick={() => navigate(-1)}>
@@ -50,29 +78,21 @@ export default function ExemptionVerification () {
                 <tr key={key}>
                   <td className="border border-pC bg-pLC">{user.roll}</td>
                   <td className="border border-pC bg-pLC">
-                    {user.academic_course_name}{' '}
+                    {user.academic_course_name}{" "}
                   </td>
-                  <td><div className="max-w-fit">
-                    <button
-                      onClick={() => {
-                        navigate("/exemptionverificationcard", {
-                        state: {
-                            roll:user.roll,
-                            academic_course_name:user.academic_course_name,
-                            semester:user.semester,
-                            type_of_course:user.type_of_course,
-                            academic_course_code:user.academic_course_code,
-                            academic_course_credit:user.academic_course_credit,
-                            course_code:user.course_code,
-                            course_credit:user.course_credit,
-                            course_name:user.course_name
-                        },
-                      });}}
-                      className="bg-pLC hover:bg-pMC text-pC hover:text-pLC font-bold py-2 px-4 rounded-full whitespace-nowrap	"
-                    >
-                      <p>View</p>
-                    </button>
-                  </div></td>
+                  <td>
+                    <div className="max-w-fit">
+                      <button
+                        onClick={async () => {
+                          const inputs = { username: user.roll };
+                          getStudent(inputs, user);
+                        }}
+                        className="bg-pLC hover:bg-pMC text-pC hover:text-pLC font-bold py-2 px-4 rounded-full whitespace-nowrap	"
+                      >
+                        <p>View</p>
+                      </button>
+                    </div>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -80,22 +100,5 @@ export default function ExemptionVerification () {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
-// {/* <td className="border border-pC" > */}
-// {/* </td> */}
-//     {/* <th className="w-1/4 p-0 sm:px-4 py-2 border border-pLC break-words">Semester</th>
-//       <th className="w-1/4 p-0 sm:px-4 py-2 border border-pLC break-words">Type of courses</th>
-//       <th className="w-1/4 p-0 sm:px-4 py-2 border border-pLC break-words">Academic Course Code</th> */}
-//     {/* <th className="w-1/4 p-0 sm:px-4 py-2 border border-pLC break-words">Academic Course Credit</th>
-//       <th className="w-1/4 p-0 sm:px-4 py-2 border border-pLC break-words">Course Code</th>
-//       <th className="w-1/4 p-0 sm:px-4 py-2 border border-pLC break-words">Course Credit</th>
-//       <th className="w-1/4 p-0 sm:px-4 py-2 border border-pLC break-words">Course Name</th> */}
-//   {/* <td className="border border-pC">{}</td>
-//             <td className="border border-pC">{}</td>
-//             <td className="border border-pC">{} </td> */}
-//   {/* <td className="border border-pC">{}</td> */}
-//   {/* <td className="border border-pC">{}</td>
-//             <td className="border border-pC">{}</td>
-//             <td className="border border-pC">{}</td> */}
