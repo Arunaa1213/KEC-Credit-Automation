@@ -11,8 +11,7 @@ import Exemption from "./student/course/Exemption";
 import AdminHome from "./admin/AdminHome";
 import ExemptionVerification from "./staff/course/ExemptionVerification";
 import ExcemptionVerificationCard from "./staff/course/ExemptionVerificationCard";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-
+import OptCourseCard from "./student/course/OptCourseCard";
 function App() {
   return (
     <div>
@@ -36,6 +35,7 @@ function App() {
             path="/exemptionverificationcard"
             element={<ExcemptionVerificationCard />}
           />
+          <Route path="/optcoursecard" element={<OptCourseCard />} />
         </Routes>
       </BrowserRouter>
     </div>
