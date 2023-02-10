@@ -1,8 +1,18 @@
 import { useLocation } from "react-router-dom";
-
+import axios from "axios";
 function ExcemptionVerificationCard() {
   const location = useLocation();
-
+  function updateStatus(inputs) {
+    axios
+      .post(
+        "http://localhost:81/KEC-Credit-Automation-DB/updateApprove.php",
+        inputs
+      )
+      .then(function (response) {
+        console.log(response.data);
+        // navigate("/studenthome");
+      });
+  }
   return (
     <div className="w-screen p-6 rounded-md shadow-md bg-pELC flex flex-col justify-center items-center">
       <div className="border border-pMC w-fit sm:max-w-1/2">
@@ -149,6 +159,10 @@ function ExcemptionVerificationCard() {
       </div>
       <div className="flex flex-col items-center mt-4">
         <button
+          onClick={async () => {
+            const inputs = { username: location.state.roll };
+            updateStatus(inputs);
+          }}
           type="submit"
           className="bg-pLC hover:bg-pMC text-pC hover:text-pLC font-bold py-2 px-4 border-b-4 border-pC rounded"
         >
