@@ -30,7 +30,7 @@ export default function NPTELTable(student) {
               >
                 Descriptive Statistics with R Software
               </th>
-              <td className="md:px-6 py-4">Sliver</td>
+              <td className="md:px-6 py-4">90%</td>
               <td className="md:px-6 py-4">90%</td>
               <td className="md:px-6 py-4">3</td>
             </tr>
