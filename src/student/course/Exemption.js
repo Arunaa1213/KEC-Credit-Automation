@@ -15,7 +15,7 @@ function Exemption() {
   const handleSubmit = (event) => {
     console.log("pressed");
     event.preventDefault();
-    inputs["approve_status"] = 0 ;
+    inputs["approve_status"] = 0;
     axios
       .post(
         "http://localhost:81/KEC-Credit-Automation-DB/exemptionRequest.php",
@@ -23,13 +23,21 @@ function Exemption() {
       )
       .then(function (response) {
         console.log(response.data);
-        navigate("/addcourse");
+        navigate("/studenthome");
       });
   };
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden bg-pELC text-pC">
-      <button className="absolute left-16 top-10" onClick={() => navigate(-1)}>      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" className="h-4 inline m-2"><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>      
-</button>
+      <button className="absolute left-16 top-10" onClick={() => navigate(-1)}>
+        {" "}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 384 512"
+          className="h-4 inline m-2"
+        >
+          <path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" />
+        </svg>
+      </button>
       <div className="w-3/4 min-w-max max-w-xl p-6 m-auto bg-white rounded-md shadow-lg ">
         <div className="flex flex-col items-center mt-4 font-extrabold">
           <h2>EXEMPTION REQUEST</h2>
@@ -52,6 +60,7 @@ function Exemption() {
                 onChange={handleChange}
               />
             </div>
+
             <div className="w-1/2 px-3">
               <label
                 className="block uppercase tracking-wide  text-xs font-bold mb-2"
@@ -59,32 +68,62 @@ function Exemption() {
               >
                 Semester
               </label>
-              <input
-                className="appearance-none block w-full bg-pLC  border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-sem"
-                type="text"
-                name="sem"
-                placeholder="VII"
-                onChange={handleChange}
-              />
+              <div className="relative">
+                <select
+                  className="appearance-none block w-full bg-pLC  border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-sem"
+                  type="text"
+                  name="sem"
+                  placeholder="VII"
+                  onChange={handleChange}
+                >
+                  <option value={0}>Choose Semester</option>
+                  <option value={7}>7</option>
+                  <option value={8}>8</option>
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
+                  <svg
+                    className="fill-current h-4 w-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-1/2 px-3">
               <label
-                className="block uppercase tracking-wide  text-xs font-bold mb-2"
+                className="block uppercase tracking-wide text-xs font-bold mb-2"
                 htmlFor="type"
               >
                 Type of Course(PE/OE)
               </label>
-              <input
-                className="appearance-none block w-full bg-pLC  border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-courses"
-                type="text"
-                name="type"
-                placeholder="Academic course"
-                onChange={handleChange}
-              />
+              <div className="relative">
+                <select
+                  className="appearance-none block w-full bg-pLC  border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-courses"
+                  type="text"
+                  name="type"
+                  placeholder="Academic course"
+                  onChange={handleChange}
+                >
+                  <option value={0}>Choose Type</option>
+                  <option value={"PE"}>PE</option>
+                  <option value={"OE"}>OE</option>
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
+                  <svg
+                    className="fill-current h-4 w-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                  </svg>
+                </div>
+              </div>
             </div>
             <div className="w-1/2  px-3 mb-6 md:mb-0">
               <label
@@ -120,6 +159,7 @@ function Exemption() {
                 onChange={handleChange}
               />
             </div>
+
             <div className="w-1/2 px-3">
               <label
                 className="block uppercase tracking-wide  text-xs font-bold mb-2"
@@ -127,14 +167,30 @@ function Exemption() {
               >
                 course credit:
               </label>
-              <input
-                className="appearance-none block w-full bg-pLC  border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-courses"
-                type="text"
-                name="credit"
-                placeholder="Academic course"
-                onChange={handleChange}
-              />
+              <div className="relative">
+                <select
+                  className="appearance-none block w-full bg-pLC  border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-courses"
+                  type="text"
+                  name="credit"
+                  placeholder="Academic course"
+                  onChange={handleChange}
+                >
+                  <option value={0}>Choose Credit</option>
+                  <option value={1}>1</option>
+                  <option value={2}>2</option>
+                  <option value={3}>3</option>
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
+                  <svg
+                    className="fill-current h-4 w-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -160,6 +216,7 @@ function Exemption() {
                 onChange={handleChange}
               />
             </div>
+
             <div className="w-1/2 px-3">
               <label
                 className="block uppercase tracking-wide  text-xs font-bold mb-2"
@@ -167,14 +224,30 @@ function Exemption() {
               >
                 course credit:
               </label>
-              <input
-                className="appearance-none block w-full bg-pLC  border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-courses"
-                type="text"
-                name="credit1"
-                placeholder="credits used"
-                onChange={handleChange}
-              />
+              <div className="relative">
+                <select
+                  className="appearance-none block w-full bg-pLC  border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-courses"
+                  type="text"
+                  name="credit1"
+                  placeholder="credits used"
+                  onChange={handleChange}
+                >
+                  <option value={0}>Choose Credit</option>
+                  <option value={1}>1</option>
+                  <option value={2}>2</option>
+                  <option value={3}>3</option>
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
+                  <svg
+                    className="fill-current h-4 w-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
           <div className="flex flex-wrap -mx-3 mb-6">
