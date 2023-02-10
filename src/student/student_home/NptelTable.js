@@ -8,7 +8,7 @@ export default function NPTELTable (student) {
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table className="w-full text-sm text-left text-pMC ">
             <thead className="text-xs text-pLC uppercase bg-pC ">
-              <tr cl>
+              <tr >
                 <th scope="col" className="md:px-6 md:py-3">
                   Course name
                 </th>
@@ -31,7 +31,7 @@ export default function NPTELTable (student) {
                 >
                   Descriptive Statistics with R Software
                 </th>
-                <td className="md:px-6 py-4">Sliver</td>
+                <td className="md:px-6 py-4">90%</td>
                 <td className="md:px-6 py-4">90%</td>
                 <td className="md:px-6 py-4">3</td>
               </tr>
