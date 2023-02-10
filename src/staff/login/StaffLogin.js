@@ -20,7 +20,8 @@ function StaffLogin() {
         "http://localhost:81/KEC-Credit-Automation-DB/staffLogin.php",
         inputs
       )
-      .then(function (response) {
+      .then(function(response) {
+        console.log(response.data);
         if (response.data.length === 0) {
           alert("invalid");
         } else {
@@ -29,6 +30,9 @@ function StaffLogin() {
             state: {
               user_email: response.data[0]["email"],
               user_name: response.data[0]["staff_name"],
+              user_dept: response.data[0]["department"],
+              user_batch: response.data[0]["student_batch"],
+              user_section: response.data[0]["section"],
             },
           });
         }

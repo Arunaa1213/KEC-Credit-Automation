@@ -15,15 +15,12 @@ function OptCourseCard(state) {
     axios
       .get("http://localhost:81/KEC-Credit-Automation-DB/optcourse.php")
       .then(function(response) {
-        // console.log(response.data);
         setUsers(response.data);
       });
   }
   function handleSubmit(e, value, id) {
     e.preventDefault();
-    // console.log(value);
-    // setInputs(value);
-    // console.log(input);
+
     var inputs = { student_id: location.state.student_id, course_code: value };
 
     console.log(inputs);
@@ -36,9 +33,11 @@ function OptCourseCard(state) {
         console.log(response);
         if (response.data.status === 0)
           alert("Only one course should be selected");
-        // else {
-        //   alert("Course has been registered successfully");
-        // }
+        else if (response.data.status === -1) {
+          alert("Error");
+        } else {
+          alert("Course has been registered successfully");
+        }
       })
       // .catch((error) => window.alert("OOPS!!!!"));
   }
