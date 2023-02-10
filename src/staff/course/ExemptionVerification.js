@@ -7,7 +7,6 @@ export default function ExemptionVerification() {
 
   const [users, setUsers] = useState([]);
 
-  const [profile, setProfile] = useState([]);
   useEffect(() => {
     getUsers();
   }, []);
@@ -21,12 +20,12 @@ export default function ExemptionVerification() {
   }
 
   async function getStudent(inputs, user) {
-    console.log(inputs);
     const response = await axios.post(
       "http://localhost:81/KEC-Credit-Automation-DB/getByRollNo.php",
       inputs
-    );
-
+      );
+      
+      console.log(response.data);
     navigate("/exemptionverificationcard", {
       state: {
         roll: user.roll,

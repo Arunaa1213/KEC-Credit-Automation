@@ -33,14 +33,14 @@ function OptCourseCard(state) {
         inputs
       )
       .then(function(response) {
-        // console.log(response.data);
+        console.log(response);
         if (response.data.status === 0)
           alert("Only one course should be selected");
-        else {
-          alert("Course has been registered successfully");
-        }
+        // else {
+        //   alert("Course has been registered successfully");
+        // }
       })
-      .catch((error) => window.alert("OOPS!!!!"));
+      // .catch((error) => window.alert("OOPS!!!!"));
   }
   return (
     <div className="w-screen h-screen p-6 rounded-md shadow-md bg-pELC flex flex-col justify-center items-center">
