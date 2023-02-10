@@ -1,43 +1,42 @@
-import { useState } from 'react'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
-import { useLocation } from 'react-router-dom'
-import Multiselect from 'multiselect-react-dropdown'
-function AddCourse (state) {
-  const navigate = useNavigate()
-  const location = useLocation()
-  const [inputs, setInputs] = useState([])
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import Multiselect from "multiselect-react-dropdown";
+function AddCourse(state) {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [inputs, setInputs] = useState([]);
 
-  const [options] = useState([1, 2, 3, 4, 5])
-  const handleChange = event => {
-    const name = event.target.name
-    const value = event.target.value
-    console.log(name)
+  const [options] = useState([1, 2, 3, 4, 5]);
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    console.log(name);
     // console.log(name);
-    console.log(value)
-    setInputs(values => ({ ...values, [name]: value }))
-  }
-  const handleSubmit = event => {
-    event.preventDefault()
-    console.log(location.state.user_email)
-    inputs['email'] = location.state.user_email
-    // inputs["course_is_for"] = year1;
-    console.log(inputs)
+    console.log(value);
+    setInputs((values) => ({ ...values, [name]: value }));
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(location.state.user_email);
+    inputs["email"] = location.state.user_email;
+    console.log(inputs);
     axios
       .post(
-        'http://localhost:81/KEC-Credit-Automation-DB/addcourse.php',
+        "http://localhost:81/KEC-Credit-Automation-DB/addcourse.php",
         inputs
       )
       .then(function (response) {
-        console.log(response.data)
-        navigate('/addcourse', {
+        console.log(response.data);
+        navigate("/addcourse", {
           state: {
             user_email: location.state.user_email,
-            user_name: location.state.user_name
-          }
-        })
-      })
-  }
+            user_name: location.state.user_name,
+          },
+        });
+      });
+  };
   return (
     <div className="w-3/4 min-w-max max-w-xl p-6 m-auto bg-white rounded-md shadow-md">
       <div className="text-3xl font-bold text-center text-pC">
@@ -95,12 +94,12 @@ function AddCourse (state) {
               <Multiselect
                 options={options}
                 // onSearch={handleSearch}
-                onRemove={event => {
-                  console.log(event)
+                onRemove={(event) => {
+                  console.log(event);
                 }}
-                onSelect={event => {
-                  console.log(event)
-                  inputs['course_is_for'] = event
+                onSelect={(event) => {
+                  console.log(event);
+                  inputs["course_is_for"] = event;
                 }}
                 // loading={loading}
                 isObject={false}
@@ -204,9 +203,9 @@ function AddCourse (state) {
                 type="text"
                 placeholder="Type"
               >
-                <option value={'0'}>Choose credit</option>
-                <option value={'external'}>External Faculty</option>
-                <option value={'internal'}>Internal Faculty</option>
+                <option value={"0"}>Choose credit</option>
+                <option value={"external"}>External Faculty</option>
+                <option value={"internal"}>Internal Faculty</option>
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
                 <svg
@@ -249,7 +248,7 @@ function AddCourse (state) {
         </div>
       </form>
     </div>
-  )
+  );
 }
 
-export default AddCourse
+export default AddCourse;
