@@ -1,10 +1,10 @@
-import { useLocation } from "react-router-dom";
-import AboutStudent from "./AboutStudent";
-import StudentDashBoard from "./StudentDashboard";
-import StudentNav from "./StudentNav";
+import { useLocation } from 'react-router-dom'
+import AboutStudent from './AboutStudent'
+import StudentDashBoard from './StudentDashboard'
+import StudentNav from './StudentNav'
 
-function StudentHome(state) {
-  const location = useLocation();
+function StudentHome (state) {
+  const location = useLocation()
   return (
     <div className="bg-pELC w-full h-full px-auto">
       <div className="mb-3">
@@ -14,7 +14,7 @@ function StudentHome(state) {
         />
       </div>
       <div className="flex justify-around flex-wrap">
-        <StudentDashBoard />
+        <StudentDashBoard user_roll={location.state.user_roll} />
         <div>
           <div className="mb-8">
             <div className=" h-28 w-28 mx-auto mt-12 mb-4 pt-4 pl-8 text-6xl font-extrabold font-mono rounded-full border-8 border-pC ">
@@ -33,9 +33,9 @@ function StudentHome(state) {
           />
         </div>
       </div>
-      <div></div>
+      <div />
     </div>
-  );
+  )
 }
 
-export default StudentHome;
+export default StudentHome

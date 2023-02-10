@@ -1,4 +1,4 @@
-export default function CollegeOfferCoursesTable() {
+export default function CollegeOfferCoursesTable(student) {
   return (
     <div className="text-pC ">
       <div className="h-1/2 flex flex-col justify-evenly">
