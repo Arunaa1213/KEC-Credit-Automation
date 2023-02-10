@@ -1,18 +1,18 @@
-import { Routes, Route, BrowserRouter } from 'react-router-dom'
-import Home from './Home'
-import AddCourse from './staff/course/AddCourse'
-import StaffLogin from './staff/login/StaffLogin'
-import StaffHome from './staff/StaffHome'
-import AddNPTELCourse from './student/course/AddNPTELCourse'
-import StudentLogin from './student/login/StudentLogin'
-import StudentHome from './student/StudentHome'
-import Exemption from './student/course/Exemption'
-import AdminHome from './admin/AdminHome'
-import ExemptionVerification from './staff/course/ExemptionVerification'
-import ExcemptionVerificationCard from './staff/course/ExemptionVerificationCard'
-import OptCourse from './student/course/OptCourse'
-
-function App () {
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Home from "./Home";
+import AddCourse from "./staff/course/AddCourse";
+import StaffLogin from "./staff/login/StaffLogin";
+import StaffHome from "./staff/StaffHome";
+import AddNPTELCourse from "./student/course/AddNPTELCourse";
+import OptCourse from "./student/course/OptCourse";
+import StudentLogin from "./student/login/StudentLogin";
+import StudentHome from "./student/StudentHome";
+import Exemption from "./student/course/Exemption";
+import AdminHome from "./admin/AdminHome";
+import ExemptionVerification from "./staff/course/ExemptionVerification";
+import ExcemptionVerificationCard from "./staff/course/ExemptionVerificationCard";
+import OptCourseCard from "./student/course/OptCourseCard";
+function App() {
   return (
     <div>
       <BrowserRouter>
@@ -35,10 +35,11 @@ function App () {
             path="/exemptionverificationcard"
             element={<ExcemptionVerificationCard />}
           />
+          <Route path="/optcoursecard" element={<OptCourseCard />} />
         </Routes>
       </BrowserRouter>
     </div>
-  )
+  );
 }
 
-export default App ;
+export default App;

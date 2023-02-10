@@ -1,27 +1,38 @@
-import { useLocation } from 'react-router-dom'
-import { useState } from 'react'
-import axios from 'axios'
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-function ExcemptionVerificationCard (state) {
-  const location = useLocation()
-  const [users, setUsers] = useState([])
-  const inputs = { username: location.state.roll }
+function ExcemptionVerificationCard(state) {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [users, setUsers] = useState([]);
+  const inputs = { username: location.state.roll };
 
   axios
     .post(
-      'http://localhost:81/KEC-Credit-Automation-DB/getByRollNo.php',
+      "http://localhost:81/KEC-Credit-Automation-DB/getByRollNo.php",
       inputs
     )
-    .then(function (response) {
-      setUsers(response.data)
+    .then(function(response) {
+      setUsers(response.data);
       console.log(
-        'file: ExemptionVerificationCard.js:7 ~ ExcemptionVerificationCard ~ users',
+        "file: ExemptionVerificationCard.js:7 ~ ExcemptionVerificationCard ~ users",
         users
-      )
-    })
+      );
+    });
 
   return (
     <div className="w-screen h-screen p-6 rounded-md shadow-md bg-pELC flex flex-col justify-center items-center">
+      <button className="absolute left-12 top-6" onClick={() => navigate(-1)}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 384 512"
+          className="h-4 inline m-2"
+        >
+          <path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" />
+        </svg>
+      </button>
       <div className="border border-pMC w-1/2">
         <table className="w-full text-sm text-left text-pMC ">
           <tbody>
@@ -126,7 +137,7 @@ function ExcemptionVerificationCard (state) {
         </button>
       </div>
     </div>
-  )
+  );
 }
 
-export default ExcemptionVerificationCard
+export default ExcemptionVerificationCard;
