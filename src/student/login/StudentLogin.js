@@ -1,48 +1,50 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-function StudentLogin() {
-  const navigate = useNavigate();
-  const [inputs, setInputs] = useState([]);
+import React, { useState } from 'react'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+function StudentLogin () {
+  const navigate = useNavigate()
+  const [inputs, setInputs] = useState([])
 
-  const handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setInputs((values) => ({ ...values, [name]: value }));
-  };
+  const handleChange = event => {
+    const name = event.target.name
+    const value = event.target.value
+    setInputs(values => ({ ...values, [name]: value }))
+  }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(inputs);
+  const handleSubmit = event => {
+    event.preventDefault()
+    console.log(inputs)
     axios
       .post(
-        "http://localhost:81/KEC-Credit-Automation-DB/studentLogin.php",
+        'http://localhost:81/KEC-Credit-Automation-DB/studentLogin.php',
         inputs
       )
       .then(function (response) {
-        console.log("after login", response.data);
+        console.log('after login', response.data)
         if (response.data.length === 0) {
-          alert("invalid");
+          alert('invalid')
         } else {
-          navigate("/studenthome", {
+          navigate('/studenthome', {
             state: {
-              user_roll: response.data[0]["roll_no"],
-              user_name: response.data[0]["student_name"],
-              user_email: response.data[0]["student_email"],
-              user_dept: response.data[0]["department"],
-              user_sec: response.data[0]["section"],
-              user_entire_credit: response.data[0]["entire_credit"],
-              user_balance_credit: response.data[0]["balance_credit"],
-            },
-          });
+              user_roll: response.data[0]['roll_no'],
+              user_name: response.data[0]['student_name'],
+              user_email: response.data[0]['student_email'],
+              user_dept: response.data[0]['department'],
+              user_sec: response.data[0]['section'],
+              user_entire_credit: response.data[0]['entire_credit'],
+              user_balance_credit: response.data[0]['balance_credit'],
+              user_regulation: response.data[0]['regulation'],
+              user_sem: response.data[0]['semester']
+            }
+          })
         }
-      });
-  };
+      })
+  }
 
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden bg-pELC">
       <button className="absolute left-16 top-10" onClick={() => navigate(-1)}>
-        {" "}
+        {' '}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 384 512"
@@ -98,7 +100,7 @@ function StudentLogin() {
         </form>
       </div>
     </div>
-  );
+  )
 }
 
-export default StudentLogin;
+export default StudentLogin

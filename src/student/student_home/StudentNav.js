@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState } from 'react'
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
+import { Link, useLocation } from 'react-router-dom'
 
 const StudentNav = () => {
-  const [nav, setNav] = useState(false);
-  const location = useLocation();
+  const [nav, setNav] = useState(false)
+  const location = useLocation()
 
   const handleNav = () => {
-    setNav(!nav);
-  };
-  console.log("nav", location.state.user_roll);
+    setNav(!nav)
+  }
+  console.log('nav', location.state.user_roll)
   return (
     <div className="flex justify-around items-center flex-wrap h-42 relative">
       <div className="text-pC flex justify-between items-center h-24 w-full mx-12  font-bold">
         {/* <Link to="/studenthome"> */}
-          <h1 className="text-3xl ml-4 align-middle	"> Student Home </h1>
+        <h1 className="text-3xl ml-4 align-middle	"> Student Home </h1>
         {/* </Link> */}
 
         <ul className="hidden sm:flex">
@@ -23,7 +23,7 @@ const StudentNav = () => {
               to="/addnptelcourse"
               state={{
                 user_roll: location.state.user_roll,
-                user_name: location.state.user_name,
+                user_name: location.state.user_name
               }}
             >
               Add NPTEL Course
@@ -34,7 +34,7 @@ const StudentNav = () => {
               to="/optcourse"
               state={{
                 user_roll: location.state.user_roll,
-                user_name: location.state.user_name,
+                user_name: location.state.user_name
               }}
             >
               Opt course
@@ -42,13 +42,18 @@ const StudentNav = () => {
           </li>
           <li className="p-4">
             <Link
-              to="/exemption"
+              to="/semcourses"
               state={{
-                user_email: location.state.user_roll,
+                user_roll: location.state.user_roll,
                 user_name: location.state.user_name,
+                user_email: location.state.user_email,
+                user_sec: location.state.user_sec,
+                user_dept: location.state.user_dept,
+                user_regulation: location.state.user_regulation,
+                user_sem: location.state.user_sem
               }}
             >
-              Exemption Request
+              Current Sem Courses
             </Link>
           </li>
         </ul>
@@ -58,13 +63,13 @@ const StudentNav = () => {
         <div
           className={
             nav
-              ? "z-10 fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 ease-in-out duration-500 bg-pC text-pLC sm:hidden"
-              : "fixed left-[-100%]"
+              ? 'z-10 fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 ease-in-out duration-500 bg-pC text-pLC sm:hidden'
+              : 'fixed left-[-100%]'
           }
         >
           <h1 className="w-full text-xl sm:text-3xl font-bold m-4">
-            {" "}
-            Student Home{" "}
+            {' '}
+            Student Home{' '}
           </h1>
           <ul className="uppercase p-4">
             <li className="p-4 border-b border-pLC">
@@ -81,7 +86,7 @@ const StudentNav = () => {
       </div>
       <hr className="w-2/3 h-1 mx-auto bg-pC border-0 rounded" />
     </div>
-  );
-};
+  )
+}
 
-export default StudentNav;
+export default StudentNav

@@ -11,6 +11,11 @@ function StudentHome(state) {
         <StudentNav
           user_roll={location.state.user_roll}
           user_name={location.state.user_name}
+          user_email={location.state.user_email}
+          user_dept={location.state.user_dept}
+          user_sec={location.state.user_sec}
+          user_regulation={location.state.user_regulation}
+          user_sem={location.state.user_sem}
         />
       </div>
       <div className="flex justify-around flex-wrap">

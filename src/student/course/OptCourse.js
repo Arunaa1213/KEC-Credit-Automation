@@ -47,15 +47,7 @@ export default function OptCourse() {
                 <th className="w-1/2 p-0 sm:px-4 py-2 border border-pLC break-words">
                   Course Name
                 </th>
-                {/* <th className="w-1/4 p-0 sm:px-4 py-2 border border-pLC break-words">
-                  Weeks
-                </th>
-                <th className="w-1/4 p-0 sm:px-4 py-2 border border-pLC break-words">
-                  For
-                </th>
-                <th className="w-1/4 p-0 sm:px-4 py-2 border border-pLC break-words">
-                  Credits
-                </th> */}
+               
               </tr>
             </thead>
             <tbody>
@@ -67,15 +59,7 @@ export default function OptCourse() {
                   <td className="border border-pC bg-pLC" name="course_name">
                     {user.course_name}
                   </td>
-                  {/* <td className="border border-pC" name="course_duration">
-                    {user.course_duration}
-                  </td>
-                  <td className="border border-pC" name="course_year">
-                    {user.course_is_for} Year
-                  </td>
-                  <td className="border border-pC" name="course_credit">
-                    {user.course_credit}
-                  </td> */}
+                  
 
                   <td>
                     <div className="max-w-fit">
