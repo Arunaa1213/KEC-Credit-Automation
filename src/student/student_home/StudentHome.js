@@ -21,7 +21,7 @@ function StudentHome(state) {
       <div className="flex justify-around flex-wrap">
         <StudentDashBoard user_roll={location.state.user_roll} />
         <div>
-          <div className="flex justify-evenly">
+          {/* <div className="flex justify-evenly">
             <div className="mb-8">
               <div className=" h-28 w-28 mx-auto mt-12 mb-4 pt-4 pl-8 text-6xl font-extrabold font-mono rounded-full border-8 border-pC ">
                 {location.state.user_entire_credit}
@@ -34,7 +34,7 @@ function StudentHome(state) {
               </div>
               <p className="text-right">Credits Balance</p>
             </div>
-          </div>
+          </div> */}
           <AboutStudent
             user_roll={location.state.user_roll}
             user_name={location.state.user_name}

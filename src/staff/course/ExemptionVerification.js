@@ -1,32 +1,32 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 export default function ExemptionVerification() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([])
 
   useEffect(() => {
-    getUsers();
-  }, []);
+    getUsers()
+  }, [])
 
   function getUsers() {
     axios
-      .get("http://localhost:81/KEC-Credit-Automation-DB/displayRequest.php")
-      .then(function (response) {
-        setUsers(response.data);
-      });
+      .get('http://localhost:81/KEC-Credit-Automation-DB/displayRequest.php')
+      .then(function(response) {
+        setUsers(response.data)
+      })
   }
 
   async function getStudent(inputs, user) {
     const response = await axios.post(
-      "http://localhost:81/KEC-Credit-Automation-DB/getByRollNo.php",
+      'http://localhost:81/KEC-Credit-Automation-DB/getByRollNo.php',
       inputs
-      );
-      
-      console.log(response.data);
-    navigate("/exemptionverificationcard", {
+    )
+
+    console.log(response.data)
+    navigate('/exemptionverificationcard', {
       state: {
         roll: user.roll,
         academic_course_name: user.academic_course_name,
@@ -37,14 +37,20 @@ export default function ExemptionVerification() {
         course_code: user.course_code,
         course_credit: user.course_credit,
         course_name: user.course_name,
-        student_name: response.data[0]["studentName"],
-        studentEmail: response.data[0]["studentEmail"],
-        studentBatch: response.data[0]["studentBatch"],
-        department: response.data[0]["department"],
-        section: response.data[0]["section"],
-        currentSemester: response.data[0]["currentSemester"],
-      },
-    });
+        course_code1: user.course_code2,
+        course_credit1: user.course_credit2,
+        course_name1: user.course_name2,
+        used_credit1: user.used_credit1,
+        used_credit2: user.used_credit2,
+
+        student_name: response.data[0]['student_name'],
+        studentEmail: response.data[0]['student_email'],
+        studentBatch: response.data[0]['regulation'],
+        department: response.data[0]['department'],
+        section: response.data[0]['section'],
+        currentSemester: response.data[0]['semester']
+      }
+    })
   }
   return (
     <div className="bg-pELC text-pC h-screen">
@@ -74,31 +80,35 @@ export default function ExemptionVerification() {
               </tr>
             </thead>
             <tbody>
-              {users.map((user, key) => (
-                <tr key={key}>
-                  <td className="border border-pC bg-pLC">{user.roll}</td>
-                  <td className="border border-pC bg-pLC">
-                    {user.academic_course_name}{" "}
-                  </td>
-                  <td>
-                    <div className="max-w-fit">
-                      <button
-                        onClick={async () => {
-                          const inputs = { username: user.roll };
-                          getStudent(inputs, user);
-                        }}
-                        className="bg-pLC hover:bg-pMC text-pC hover:text-pLC font-bold py-2 px-4 rounded-full whitespace-nowrap	"
-                      >
-                        <p>View</p>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
+              {users.map(
+                (user, key) =>
+                  user.approve_status === 0 ?
+                  (
+                    <tr key={key}>
+                      <td className="border border-pC bg-pLC">{user.roll}</td>
+                      <td className="border border-pC bg-pLC">
+                        {user.academic_course_name}{' '}
+                      </td>
+                      <td>
+                        <div className="max-w-fit">
+                          <button
+                            onClick={async () => {
+                              const inputs = { username: user.roll }
+                              getStudent(inputs, user)
+                            }}
+                            className="bg-pLC hover:bg-pMC text-pC hover:text-pLC font-bold py-2 px-4 rounded-full whitespace-nowrap	"
+                          >
+                            <p>View</p>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ) : <tr></tr>
+              )}
             </tbody>
           </table>
         </div>
       </div>
     </div>
-  );
+  )
 }

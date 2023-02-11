@@ -13,6 +13,16 @@ function ExcemptionVerificationCard () {
         console.log(response.data)
       })
   }
+  function updatePrevious (inputs) {
+    axios
+      .post(
+        'http://localhost:81/KEC-Credit-Automation-DB/updatePrevious.php',
+        inputs
+      )
+      .then(function (response) {
+        console.log(response.data)
+      })
+  }
   return (
     <div className="w-screen p-6 rounded-md shadow-md bg-pELC flex flex-col justify-center items-center">
       <button className="absolute left-12 top-6" onClick={() => navigate(-1)}>
@@ -96,7 +106,7 @@ function ExcemptionVerificationCard () {
                 scope="row"
                 className="px-6 py-4 font-medium text-pC whitespace-nowrap bg-pLC dark:text-white dark:bg-gray-800"
               >
-                Exemption course code
+                Exemption course code 1
               </th>
               <td className="px-6 py-4 ">{location.state.course_code}</td>
             </tr>
@@ -105,7 +115,7 @@ function ExcemptionVerificationCard () {
                 scope="row"
                 className="px-6 py-4 font-medium text-pC whitespace-nowrap bg-pLC dark:text-white dark:bg-gray-800"
               >
-                Exemption course credit
+                Exemption course credit 1
               </th>
               <td className="px-6 py-4 ">{location.state.course_credit}</td>
             </tr>
@@ -114,10 +124,57 @@ function ExcemptionVerificationCard () {
                 scope="row"
                 className="px-6 py-4 font-medium text-pC whitespace-nowrap bg-pLC dark:text-white dark:bg-gray-800"
               >
-                Exemption course name
+                Exemption course name 1
               </th>
               <td className="px-6 py-4 ">{location.state.course_name}</td>
             </tr>
+            <tr className="border-b border-pMC">
+              <th
+                scope="row"
+                className="px-6 py-4 font-medium text-pC whitespace-nowrap bg-pLC dark:text-white dark:bg-gray-800"
+              >
+                Used credit 1
+              </th>
+              <td className="px-6 py-4 ">{location.state.used_credit1}</td>
+            </tr>
+            {/* ----- */}
+            <tr className="border-b border-pMC">
+              <th
+                scope="row"
+                className="px-6 py-4 font-medium text-pC whitespace-nowrap bg-pLC dark:text-white dark:bg-gray-800"
+              >
+                Exemption course code 2
+              </th>
+              <td className="px-6 py-4 ">{location.state.course_code1}</td>
+            </tr>
+            <tr className="border-b border-pMC">
+              <th
+                scope="row"
+                className="px-6 py-4 font-medium text-pC whitespace-nowrap bg-pLC dark:text-white dark:bg-gray-800"
+              >
+                Exemption course credit 2
+              </th>
+              <td className="px-6 py-4 ">{location.state.course_credit1}</td>
+            </tr>
+            <tr className="border-b border-pMC">
+              <th
+                scope="row"
+                className="px-6 py-4 font-medium text-pC whitespace-nowrap bg-pLC dark:text-white dark:bg-gray-800"
+              >
+                Exemption course name 2
+              </th>
+              <td className="px-6 py-4 ">{location.state.course_name1}</td>
+            </tr>
+            <tr className="border-b border-pMC">
+              <th
+                scope="row"
+                className="px-6 py-4 font-medium text-pC whitespace-nowrap bg-pLC dark:text-white dark:bg-gray-800"
+              >
+                Used credit 2
+              </th>
+              <td className="px-6 py-4 ">{location.state.used_credit2}</td>
+            </tr>
+            {/* -------- */}
             <tr className="border-b border-pMC">
               <th
                 scope="row"
@@ -169,8 +226,25 @@ function ExcemptionVerificationCard () {
       <div className="flex flex-col items-center mt-4">
         <button
           onClick={async () => {
-            const inputs = { username: location.state.roll }
-            updateStatus(inputs)
+            updateStatus({ username: location.state.roll })
+            if (
+              location.state.used_credit1 + location.state.used_credit2 ===
+              location.state.academic_course_credit
+            ) {
+              updatePrevious({
+                roll: location.state.roll,
+                code: location.state.course_code,
+                usedcredit: location.state.used_credit1
+              })
+
+              updatePrevious({
+                roll: location.state.roll,
+                code: location.state.course_code1,
+                usedcredit: location.state.used_credit2
+              })
+            } else {
+              alert('Credits sum not satisfied')
+            }
           }}
           type="submit"
           className="bg-pLC hover:bg-pMC text-pC hover:text-pLC font-bold py-2 px-4 border-b-4 border-pC rounded"
