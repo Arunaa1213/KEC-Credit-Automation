@@ -1,44 +1,67 @@
-import { useState } from 'react'
-import axios from 'axios'
-import { useNavigate, useLocation } from 'react-router-dom'
-function Exemption () {
-  const navigate = useNavigate()
-  const location = useLocation()
-  const [inputs, setInputs] = useState([])
-
-  const handleChange = event => {
-    const name = event.target.name
-    const value = event.target.value
-    setInputs(values => ({ ...values, [name]: value }))
-    console.log(event.target.value)
-  }
-
-  const handleSubmit = event => {
-    console.log('pressed')
-    event.preventDefault()
-    inputs['code'] = location.state.course_code
-    inputs['name'] = location.state.course_name
-    inputs['sem'] = location.state.course_sem
-    inputs['type'] = location.state.course_category
-    inputs['credit'] = location.state.course_credit
-    inputs['roll'] = location.state.user_roll
-    inputs['approve_status'] = 0
-    console.log('file: Exemption.js:19 ~ handleSubmit ~ inputs', inputs)
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate, useLocation } from "react-router-dom";
+function Exemption() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [inputs, setInputs] = useState([]);
+  const [data, setData] = useState([]);
+  const [one, setOne] = useState([]);
+  const [two, setTwo] = useState([]);
+  const [oneval, setOneval] = useState("");
+  const [twoval, setTwoval] = useState("");
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setOneval(event.target.value);
+    setInputs((values) => ({ ...values, [name]: value }));
+    console.log(event.target.value);
+  };
+  useEffect(() => {
+    var values = { username: location.state.user_roll };
+    axios
+      .post(
+        "http://localhost:81/KEC-Credit-Automation-DB/getpreviousrecords.php",
+        values
+      )
+      .then(function(response) {
+        console.log(response.data);
+        setData(response.data);
+      });
+  }, []);
+  const handleSubmit = (event) => {
+    console.log("pressed");
+    event.preventDefault();
+    inputs["code"] = location.state.course_code;
+    inputs["name"] = location.state.course_name;
+    inputs["sem"] = location.state.course_sem;
+    inputs["type"] = location.state.course_category;
+    inputs["credit"] = location.state.course_credit;
+    inputs["roll"] = location.state.user_roll;
+    inputs["approve_status"] = 0;
+    console.log("file: Exemption.js:19 ~ handleSubmit ~ inputs", inputs);
 
     axios
       .post(
-        'http://localhost:81/KEC-Credit-Automation-DB/exemptionRequest.php',
+        "http://localhost:81/KEC-Credit-Automation-DB/exemptionRequest.php",
         inputs
       )
-      .then(function (response) {
-        console.log(response.data)
-        window.location.reload()
-      })
+      .then(function(response) {
+        console.log(response.data);
+        window.location.reload();
+      });
+  };
+  function checkdata(obj) {
+    if (obj.course_code === oneval) {
+      return true;
+    } else {
+      return false;
+    }
   }
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden bg-pELC text-pC">
       <button className="absolute left-16 top-10" onClick={() => navigate(-1)}>
-        {' '}
+        {" "}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 384 512"
@@ -166,28 +189,13 @@ function Exemption () {
           </h4>
           <br />
           <div className="flex flex-wrap -mx-3 mb-6">
-            <div className="w-1/2 px-3">
-              <label
-                className="block uppercase tracking-wide  text-xs font-bold mb-2"
-                htmlFor="code1"
-              >
-                course code:
-              </label>
-              <input
-                className="appearance-none block w-full bg-pLC  border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-courses"
-                type="text"
-                name="code1"
-                onChange={handleChange}
-              />
-            </div>
-
+            {/* COURSE CODE STARTS  */}
             <div className="w-1/2 px-3">
               <label
                 className="block uppercase tracking-wide  text-xs font-bold mb-2"
                 htmlFor="credit1"
               >
-                course credit:
+                Course code
               </label>
               <div className="relative">
                 <select
@@ -197,10 +205,10 @@ function Exemption () {
                   name="credit1"
                   onChange={handleChange}
                 >
-                  <option value={0}>Choose Credit</option>
-                  <option value={1}>1</option>
-                  <option value={2}>2</option>
-                  <option value={3}>3</option>
+                  <option value={0}>Choose Code</option>
+                  {data.map((e, key) => (
+                    <option>{e.course_code}</option>
+                  ))}
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
                   <svg
@@ -213,6 +221,29 @@ function Exemption () {
                 </div>
               </div>
             </div>
+            {/* COURSE CODE ENDS  */}
+
+            {/* course credit begins */}
+            <div className="w-1/2 px-3">
+              <label
+                className="block uppercase tracking-wide  text-xs font-bold mb-2"
+                htmlFor="sem"
+              >
+                COURSE CREDIT
+              </label>
+              <input
+                className="appearance-none block w-full bg-pLC  border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-sem"
+                type="text"
+                value={data
+                  .filter(checkdata)
+                  .map((element) => element.total_credit)}
+                name="sem"
+                placeholder="VII"
+                onChange={handleChange}
+              />
+            </div>
+            {/* COURSE CREDIT ENDS */}
           </div>
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-1/2 px-3">
@@ -227,6 +258,9 @@ function Exemption () {
                 id="grid-courses"
                 type="text"
                 name="name1"
+value={data
+                  .filter(checkdata)
+                  .map((element) => element.course_name)}
                 onChange={handleChange}
               />
             </div>
@@ -371,7 +405,7 @@ function Exemption () {
         </form>
       </div>
     </div>
-  )
+  );
 }
 
-export default Exemption
+export default Exemption;

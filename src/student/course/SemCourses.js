@@ -6,7 +6,14 @@ import { useLocation } from 'react-router-dom'
 export default function SemCourses () {
   const location = useLocation()
   const navigate = useNavigate()
+const inputs = {
+    user_dept: location.state.user_dept,
+    user_regulation: location.state.user_regulation,
+    user_sem: location.state.user_sem
+  }
+console.log(inputs);
   useEffect(() => {
+
     axios
       .post(
         'http://localhost:81/KEC-Credit-Automation-DB/semcourses.php',
@@ -18,11 +25,7 @@ export default function SemCourses () {
       })
   }, [])
   const [courses, setCourses] = useState([])
-  const inputs = {
-    user_dept: location.state.user_dept,
-    user_regulation: location.state.user_regulation,
-    user_sem: location.state.user_sem
-  }
+  
 
   return (
     <div className="flex justify-center items-center h-screen">
@@ -47,10 +50,10 @@ export default function SemCourses () {
                 <td className="border-r border-pC">{course.Category}</td>
                 
                 <td className="border-r border-pC">{course.CourseCode}</td>
-                <td>{course.CourseTitle}</td>
+                <td>{(course.CourseTitle)}</td>
                 <td>
                   <div className="max-w-fit">
-                    {course.exempted === 0 && (
+                    {course.exempted == 0 && (
                       <button
 
                       
