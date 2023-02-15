@@ -7,7 +7,7 @@ function AboutStudent(state) {
             <tr className="border-b border-pMC">
               <th
                 scope="row"
-                className="px-6 py-4 font-medium text-pC whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+                className="px-6 py-4 font-medium text-pLC whitespace-nowrap  bg-pC"
               >
                 Name
               </th>
@@ -16,7 +16,7 @@ function AboutStudent(state) {
             <tr className="border-b border-pMC">
               <th
                 scope="row"
-                className="px-6 py-4 font-medium text-pC whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+                className="px-6 py-4 font-medium text-pLC whitespace-nowrap  bg-pC"
               >
                 Roll Number
               </th>
@@ -25,7 +25,7 @@ function AboutStudent(state) {
             <tr className="border-b border-pMC">
               <th
                 scope="row"
-                className="px-6 py-4 font-medium text-pC whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+                className="px-6 py-4 font-medium text-pLC whitespace-nowrap  bg-pC"
               >
                 Email
               </th>
@@ -34,7 +34,7 @@ function AboutStudent(state) {
             <tr className="border-b border-pMC">
               <th
                 scope="row"
-                className="px-6 py-4 font-medium text-pC whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+                className="px-6 py-4 font-medium text-pLC whitespace-nowrap  bg-pC"
               >
                 Department
               </th>
@@ -43,7 +43,7 @@ function AboutStudent(state) {
             <tr className="border-b border-pMC">
               <th
                 scope="row"
-                className="px-6 py-4 font-medium text-pC whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+                className="px-6 py-4 font-medium text-pLC whitespace-nowrap  bg-pC"
               >
                 Section
               </th>
@@ -52,7 +52,7 @@ function AboutStudent(state) {
             <tr className="border-b border-pMC">
               <th
                 scope="row"
-                className="px-6 py-4 font-medium text-pC whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+                className="px-6 py-4 font-medium text-pLC whitespace-nowrap  bg-pC"
               >
                 Entire Credit earned
               </th>
@@ -61,7 +61,7 @@ function AboutStudent(state) {
             <tr className="border-b border-pMC">
               <th
                 scope="row"
-                className="px-6 py-4 font-medium text-pC whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+                className="px-6 py-4 font-medium text-pLC whitespace-nowrap  bg-pC"
               >
                 Balance Credit
               </th>

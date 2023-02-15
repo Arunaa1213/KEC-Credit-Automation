@@ -48,16 +48,16 @@ function StaffDashBoard() {
             <tbody>
               {console.log(users)}
               {users.map((user) => 
-                 <tr className="bg-white border-b dark:bg-pC dark:border-pC">
+                 <tr className="bg-pLC border-b dark:border-pC">
                   <th
                     scope="row"
-                    className="md:px-6 py-4 font-medium text-pC whitespace-nowrap dark:text-white "
+                    className="md:px-6 py-4 font-medium text-pC whitespace-nowrap"
                   >
                     {user.course_code}
                   </th>
-                  <td className="md:px-6 py-4">{user.course_name}</td>
-                  <td className="md:px-6 py-4">{user.course_duration}</td>
-                  <td className="md:px-6 py-4">{user.course_credit}</td>
+                  <td className="md:px-6 py-4 text-pC  ">{user.course_name}</td>
+                  <td className="md:px-6 py-4 text-pC  ">{user.course_duration}</td>
+                  <td className="md:px-6 py-4 text-pC  ">{user.course_credit}</td>
                 </tr>
               )}
             </tbody>

@@ -17,19 +17,19 @@ function Home() {
         <div className="text-pC flex justify-around items-center h-24 w-full mx-12  font-bold">
           <ul className="flex">
             <li className="p-4">
-              <Link to="/studentLogin">Student Login</Link>
+              <Link to="/studentLogin" className="transform h-64  w-1/5 hover:bg-pMC hover:text-white p-2 rounded-full transition duration-500 hover:scale-125">Student Login</Link>
             </li>
             <li className="p-4">
-              <Link to="/staffLogin">Staff Login</Link>
+              <Link to="/staffLogin" className="transform h-64 bg-pELC w-1/5 hover:bg-pMC hover:text-white transition p-2 rounded-full duration-500 hover:scale-125">Staff Login</Link>
             </li>
           </ul>
         </div>
       </div>
       <div className="flex flex-col h-5/6 md:h-auto justify-evenly md:flex-row items-center">
         <div className="flex flex-col justify-center">
-          <p className="text-5xl md:text-7xl font-bold">KEC</p>
-          <p className="text-5xl md:text-7xl font-bold">Credit</p>
-          <p className="text-5xl md:text-7xl font-bold">Automation</p>
+          <p className="text-5xl md:text-7xl font-bold animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-5xl font-black">KEC</p>
+          <p className="text-5xl md:text-7xl font-bold animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-5xl font-black">Credit</p>
+          <p className="text-5xl md:text-7xl font-bold animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-5xl font-black">Automation</p>
           <p className="px-2 my-1"> Keep It Simple , Make Things Easier. </p>
         </div>
         <div

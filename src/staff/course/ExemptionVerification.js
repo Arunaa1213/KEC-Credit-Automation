@@ -15,6 +15,7 @@ export default function ExemptionVerification() {
     axios
       .get('http://localhost:81/KEC-Credit-Automation-DB/displayRequest.php')
       .then(function(response) {
+        console.log(response.data);
         setUsers(response.data)
       })
   }
@@ -42,6 +43,10 @@ export default function ExemptionVerification() {
         course_name1: user.course_name2,
         used_credit1: user.used_credit1,
         used_credit2: user.used_credit2,
+        course_code3: user.course_code3,
+        course_credit3: user.course_credit3,
+        course_name3: user.course_name3,
+        used_credit3: user.used_credit3,
 
         student_name: response.data[0]['student_name'],
         studentEmail: response.data[0]['student_email'],

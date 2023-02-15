@@ -19,7 +19,7 @@ const StudentNav = () => {
 
         <ul className="hidden sm:flex">
           <li className="p-4">
-            <Link
+            <Link className='transform h-64  w-1/5 hover:bg-pMC hover:text-white p-2 rounded-full transition duration-500 hover:scale-125'
               to="/addnptelcourse"
               state={{
                 user_roll: location.state.user_roll,
@@ -30,7 +30,7 @@ const StudentNav = () => {
             </Link>
           </li>
           <li className="p-4">
-            <Link
+            <Link className='transform h-64  w-1/5 hover:bg-pMC hover:text-white p-2 rounded-full transition duration-500 hover:scale-125'
               to="/optcourse"
               state={{
                 user_roll: location.state.user_roll,
@@ -41,7 +41,7 @@ const StudentNav = () => {
             </Link>
           </li>
           <li className="p-4">
-            <Link
+            <Link className='transform h-64  w-1/5 hover:bg-pMC hover:text-white p-2 rounded-full transition duration-500 hover:scale-125'
               to="/semcourses"
               state={{
                 user_roll: location.state.user_roll,

@@ -44,7 +44,7 @@ function CollegeOfferCoursesTable (student) {
           </thead>
           <tbody>
             {prevdata.map((e, k) => (
-              <tr className="bg-white border-b text-pC">
+              <tr className="bg-pLC border-b text-pC">
                 <td className="md:px-6 py-4">{e.course_code}</td>
                 <td className="md:px-6 py-4">{e.course_name}</td>
                 <td className="md:px-6 py-4">{e.total_credit}</td>

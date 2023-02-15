@@ -12,13 +12,13 @@ const StaffNav = (state) => {
   return (
     <div className="flex justify-between items-center flex-wrap h-42 relative">
       <div className="text-pC flex justify-between items-center h-24 w-full mx-12  font-bold">
-        <Link to="/staffHome">
+        
           <h1 className="text-3xl ml-4 align-middle	"> Staff Home </h1>
-        </Link>
+        
 
-        <ul className="hidden md:flex">
-          <li className="p-4">
-            <Link
+        <ul className="hidden md:flex ">
+          <li className="p-4 ">
+            <Link className="transform h-64  w-1/5 hover:bg-pMC hover:text-white p-2 rounded-full transition duration-500 hover:scale-125"
               to="/addcourse"
               state={{
                 user_email: location.state.user_email,
@@ -29,7 +29,7 @@ const StaffNav = (state) => {
             </Link>
           </li>
           <li className="p-4">
-            <Link
+            <Link className="transform h-64  w-1/5 hover:bg-pMC hover:text-white p-2 rounded-full transition duration-500 hover:scale-125"
               to="/exemptionverification"
               state={{
                 user_email: location.state.user_email,

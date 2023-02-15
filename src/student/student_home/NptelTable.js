@@ -23,10 +23,10 @@ export default function NPTELTable(student) {
             </tr>
           </thead>
           <tbody>
-            <tr className="bg-white border-b dark:bg-pC dark:border-pC">
+            <tr className="bg-white border-b bg-pLC ">
               <th
                 scope="row"
-                className="md:px-6 py-4 font-medium text-pC whitespace-nowrap dark:text-white"
+                className="md:px-6 py-4 font-medium text-pC whitespace-nowrap "
               >
                 Descriptive Statistics with R Software
               </th>

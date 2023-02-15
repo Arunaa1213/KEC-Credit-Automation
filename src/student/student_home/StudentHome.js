@@ -18,9 +18,9 @@ function StudentHome(state) {
           user_sem={location.state.user_sem}
         />
       </div>
-      <div className="flex justify-around flex-wrap">
+      <div className="flex justify-around flex-wrap h-3/4">
         <StudentDashBoard user_roll={location.state.user_roll} />
-        <div>
+        <div className="mt-40">
           {/* <div className="flex justify-evenly">
             <div className="mb-8">
               <div className=" h-28 w-28 mx-auto mt-12 mb-4 pt-4 pl-8 text-6xl font-extrabold font-mono rounded-full border-8 border-pC ">

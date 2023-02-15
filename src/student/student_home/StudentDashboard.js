@@ -3,9 +3,9 @@ import CollegeOfferCoursesTable from "./collegeOfferCoursesTable";
 
 function StudentDashBoard(student) {
   return (
-    <div className="text-pC flex flex-col justify-evenly">
+    <div className="text-pC flex flex-col justify-evenly h-full">
       <CollegeOfferCoursesTable user_roll={student.user_roll} />
-      {/* <NPTELTable user_roll={student.user_roll} /> */}
+      <NPTELTable user_roll={student.user_roll} />
     </div>
   );
 }
